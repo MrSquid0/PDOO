@@ -74,7 +74,7 @@ public class Parcela {
 
 
     public boolean igualdadEstado (Parcela otraParcela){
-        boolean esIgual = false;
+        boolean esIgual = true;
 
         if (this.nombre.equals(otraParcela.nombre) &&
                 this.propietario.equals(otraParcela.propietario))
