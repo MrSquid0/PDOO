@@ -65,11 +65,11 @@ public class Parcela {
     }
 
     public boolean igualdadIdentidad (Parcela otraParcela){
-            boolean esIguall = false;
+            boolean esIgual = false;
         if (this == otraParcela)
-            esIguall = true;
+            esIgual = true;
 
-        return esIguall;
+        return esIgual;
     }
 
 
