@@ -14,7 +14,7 @@ class Parcela
   end
 
   def get_nombre
-    @nombree
+    @nombre
   end
 
   def get_precio_compra
