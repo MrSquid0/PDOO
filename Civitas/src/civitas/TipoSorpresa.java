@@ -4,10 +4,6 @@
  */
 package civitas;
 
-/**
- *
- * @author gonzalo
- */
-public class TipoSorpresa {
-    
-}
+enum TipoSorpresa{
+    PAGARCOBRAR, 
+    PORCASAHOTEL};

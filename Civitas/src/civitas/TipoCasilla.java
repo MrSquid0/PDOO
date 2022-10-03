@@ -4,10 +4,7 @@
  */
 package civitas;
 
-/**
- *
- * @author gonzalo
- */
-public class TipoCasilla {
-    
-}
+enum TipoCasilla{
+    CALLE, 
+    SORPRESA, 
+    DESCANSO};

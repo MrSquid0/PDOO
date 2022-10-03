@@ -9,14 +9,14 @@ public class Dado {
     private int ultimoResultado;
     private boolean debug;
     
-    private static Dado instance = new Dado();
+    static final private Dado instance = new Dado();
     
-    Dado(){
+    private Dado(){
         ultimoResultado = 0;
         debug = false;
     }
     
-    Dado getInstance(){
+    static Dado getInstance(){
         return instance;
     }
     

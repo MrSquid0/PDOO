@@ -8,9 +8,11 @@ public class Tablero {
     private boolean porSalida;
     private int numCasillas = 20;
     
-    Tablero (ArrayList lasCasillas, boolean pasoPorSalida){
-        lasCasillas.add("Salida");
-        pasoPorSalida = false;
+    Tablero (){
+        casillas = new ArrayList<Casilla>();
+        Casilla casilla = new Casilla(TipoCasilla.CALLE, "Salida", 0,0,0);
+        casillas.add(casilla);
+        porSalida = false;
     }
     
     private boolean correcto (int numCasilla){
