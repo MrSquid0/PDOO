@@ -4,15 +4,15 @@ package civitas;
 import java.util.Random;
 
 public class Dado {
-    private Random random;
+    private Random random = new Random();
     
     private int ultimoResultado;
     private boolean debug;
     
-    private static Dado instance;
+    private static Dado instance = new Dado();
     
     Dado(){
-        ultimoResultado = random.nextInt();
+        ultimoResultado = 0;
         debug = false;
     }
     
@@ -31,12 +31,20 @@ public class Dado {
     }
     
     int quienEmpieza (int n){
-        int jugador = random.nextInt(0, n-1);
+        int jugador = random.nextInt(1, n+1);
         return jugador;
     }
     
     void setDebug (boolean d){
         debug = d;
+        if (debug)
+            Diario.getInstance().ocurreEvento("Modo debug activado");
+        else
+            Diario.getInstance().ocurreEvento("Modo debug desactivado");
+    }
+    
+    boolean getDebug(){
+        return debug;
     }
     
     int getUltimoResultado(){

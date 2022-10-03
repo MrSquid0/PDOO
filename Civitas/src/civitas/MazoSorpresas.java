@@ -2,6 +2,8 @@
 package civitas;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Collections;
 
 public class MazoSorpresas {
     private ArrayList<Sorpresa> sorpresas;
@@ -10,6 +12,7 @@ public class MazoSorpresas {
     boolean debug;
     
     private void init(){
+        sorpresas = new ArrayList<Sorpresa>();
         barajada = false;
         usadas = 0;
     }
@@ -17,11 +20,13 @@ public class MazoSorpresas {
     MazoSorpresas(boolean d){
         debug = d;
         this.init();
+        if (debug)
+            Diario.getInstance().ocurreEvento("el Modo debug está activado");
     }
     
     MazoSorpresas(){
-        debug = false;
         this.init();
+        debug = false;
     }
     
     void alMazo (Sorpresa s){
@@ -31,9 +36,19 @@ public class MazoSorpresas {
     }
     
     Sorpresa siguiente(){
-        if ((!barajada || usadas >= sorpresas.size()) && debug == false){
+        if ((!barajada || usadas >= sorpresas.size())){
+            if (!debug){
+                    Collections.shuffle(sorpresas);
+                }
+            }
             usadas = 0;
             barajada = true;
+            
+            usadas++;
+            Sorpresa sorpresaUsada = sorpresas.get(0);
+            sorpresas.remove(0);
+            sorpresas.add(sorpresaUsada);
+            
+            return sorpresaUsada;
         }
-    }
 }
