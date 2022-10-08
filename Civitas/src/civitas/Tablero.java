@@ -8,7 +8,7 @@ public class Tablero {
     private boolean porSalida;
     private int numCasillas = 20;
     
-    Tablero (){
+    public Tablero (){
         casillas = new ArrayList<Casilla>();
         Casilla casilla = new Casilla(TipoCasilla.CALLE, "Salida", 0,0,0);
         casillas.add(casilla);
@@ -32,11 +32,15 @@ public class Tablero {
         casillas.add(casilla);
     }
     
-    Casilla getCasilla (int numCasilla){
+    public Casilla getCasilla (int numCasilla){
         if (correcto(numCasilla))
             return casillas.get(numCasilla);
         else
             return null;
+    }
+    
+    public ArrayList<Casilla> getCasillas(){
+        return casillas;
     }
     
     int nuevaPosicion (int actual, int tirada){

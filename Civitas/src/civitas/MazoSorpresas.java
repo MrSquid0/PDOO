@@ -8,8 +8,8 @@ import java.util.Collections;
 public class MazoSorpresas {
     private ArrayList<Sorpresa> sorpresas;
     private boolean barajada;
-    int usadas;
-    boolean debug;
+    private int usadas;
+    private boolean debug;
     
     private void init(){
         sorpresas = new ArrayList<Sorpresa>();

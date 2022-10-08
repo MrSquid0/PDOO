@@ -11,12 +11,15 @@ public class Dado {
     
     static final private Dado instance = new Dado();
     
+    private static int VALORDEBUG = 1;
+    private static int VALORESDADO = 6;
+    
     private Dado(){
         ultimoResultado = 0;
         debug = false;
     }
     
-    static Dado getInstance(){
+    public static Dado getInstance(){
         return instance;
     }
     
@@ -35,7 +38,7 @@ public class Dado {
         return jugador;
     }
     
-    void setDebug (boolean d){
+    public void setDebug (boolean d){
         debug = d;
         if (debug)
             Diario.getInstance().ocurreEvento("Modo debug activado");
@@ -43,7 +46,7 @@ public class Dado {
             Diario.getInstance().ocurreEvento("Modo debug desactivado");
     }
     
-    boolean getDebug(){
+    public boolean getDebug(){
         return debug;
     }
     
