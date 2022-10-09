@@ -46,10 +46,10 @@ public class Civitas {
         
         Tablero tablero = new Tablero();
         
-        Casilla casilla1 = new Casilla(TipoCasilla.CALLE, "Puerta del Sol", 50, 30, 30);
-        Casilla casilla2 = new Casilla(TipoCasilla.CALLE, "Alberto Aguilera", 20, 15, 30);
-        Casilla casilla3 = new Casilla(TipoCasilla.CALLE, "Calle Mayor", 30, 15, 30);
-        Casilla casilla4 = new Casilla(TipoCasilla.CALLE, "Calle Preciados", 35, 15, 30);
+        Casilla casilla1 = new Casilla("Puerta del Sol", 50, 30, 30);
+        Casilla casilla2 = new Casilla("Alberto Aguilera", 20, 15, 30);
+        Casilla casilla3 = new Casilla("Calle Mayor", 30, 15, 30);
+        Casilla casilla4 = new Casilla("Calle Preciados", 35, 15, 30);
         
         tablero.añadeCasilla(casilla1);
         tablero.añadeCasilla(casilla2);

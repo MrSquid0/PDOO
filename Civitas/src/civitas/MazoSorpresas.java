@@ -2,7 +2,6 @@
 package civitas;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Collections;
 
 public class MazoSorpresas {

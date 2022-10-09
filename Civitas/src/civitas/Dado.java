@@ -4,7 +4,7 @@ package civitas;
 import java.util.Random;
 
 public class Dado {
-    private Random random = new Random();
+    private final Random random = new Random();
     
     private int ultimoResultado;
     private boolean debug;

@@ -29,28 +29,10 @@ public class Casilla {
         numHoteles = 0;
     }
     
-    Casilla (TipoCasilla unTipo, String unNombre, float unPrecioCompra, float unPrecioEdificar, float unPrecioAlquilerBase){
-        init();
-        tipo = unTipo;
-        Nombre = unNombre;
-        precioCompra = unPrecioCompra;
-        precioEdificar = unPrecioEdificar;
-        precioBaseAlquiler = unPrecioAlquilerBase;
-    }
-    
-    public int cantidadCasasHoteles(){
-        return numCasas + numHoteles;
-    }
-    
-    Casilla (String nombre){
-        init();
-        tipo = TipoCasilla.DESCANSO;
-        this.Nombre = nombre;
-    }
-    
     Casilla (String titulo, float precioCompra, float precioEdificar, float precioBaseAlquiler){
         init();
         tipo = TipoCasilla.CALLE;
+        this.precioCompra = precioCompra;
         this.precioEdificar = precioEdificar;
         this.precioBaseAlquiler = precioBaseAlquiler;
     }
@@ -60,8 +42,17 @@ public class Casilla {
         tipo = TipoCasilla.SORPRESA;
         this.Nombre = nombre;
         this.mazo = mazo;
+    }    
+    
+    Casilla (String nombre){
+        init();
+        tipo = TipoCasilla.DESCANSO;
+        this.Nombre = nombre;
     }
     
+    public int cantidadCasasHoteles(){
+        return numCasas + numHoteles;
+    }    
     
     
     boolean comprar (Jugador jugador){
