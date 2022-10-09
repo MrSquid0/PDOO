@@ -1,3 +1,5 @@
+package ejerciciosjava;
+
 public class Parcela {
     private String nombre;
     private float precioCompra, precioEdificar, precioBaseAlquiler;
