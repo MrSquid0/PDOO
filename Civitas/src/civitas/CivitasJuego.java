@@ -24,7 +24,7 @@ public class CivitasJuego {
         mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel", 60));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Una inspección ha detectado fugas de gas en tus construcciones, pagas 45 por cada construcción", 45));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel", 80));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 300", 300));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada construcción", 20));
     }
     
     private void inicializaTablero(MazoSorpresas mazo){
