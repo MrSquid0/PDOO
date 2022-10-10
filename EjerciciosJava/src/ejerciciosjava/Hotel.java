@@ -58,11 +58,12 @@ public class Hotel{
     }
     
     public int buscarHabitacionCapacidad(int capacidad){
+        int valor = -1;
         for (int i=0; i<habitaciones.size(); i++){
             if (habitaciones.get(i).getCapacidad() >= capacidad)
-                return habitaciones.get(i).getNumero();
+                valor = habitaciones.get(i).getNumero();
         }
-        return -1;
+        return valor;
     }
 
 }
