@@ -8,7 +8,7 @@ public class Hotel{
     private String ciudad;
     private int estrellas;
     private ArrayList<Reserva> reservas;
-    private ArrayList<Empleado> trabaja;
+    private ArrayList<Empleado> empleados;
     private ArrayList<Habitacion> habitaciones;
 
     Director director;
@@ -19,7 +19,7 @@ public class Hotel{
         this.estrellas = estrellas;
         NUM_HOTELES++;
         reservas = new ArrayList<>();
-        trabaja = new ArrayList<>();
+        empleados = new ArrayList<>();
     }
 
     public static int getNUM_HOTELES(){
@@ -35,7 +35,9 @@ public class Hotel{
     }
     
     public void addReserva (Cliente cliente, String fechaEntrada, String fechaSalida){
-        reservas.add(new Reserva(fechaEntrada, fechaSalida, cliente, this));
+        Reserva reserva = new Reserva(fechaEntrada, fechaSalida, cliente, this);
+        reservas.add(reserva);
+        cliente.addReserva(reserva);
     }
     
     public ArrayList<Reserva> getReservas(){
@@ -43,9 +45,12 @@ public class Hotel{
     }
     
     public boolean addEmpleado(Empleado empleado){
-        if (trabaja.contains(empleado))
-            return false;
-        return true;
+        boolean sePuede = true;
+        if (empleado.addTrabajo(this))
+            empleados.add(empleado);
+        else
+            sePuede = false;
+        return sePuede;
     }
     
     public void addHabitacion(int numero, int cantidad){

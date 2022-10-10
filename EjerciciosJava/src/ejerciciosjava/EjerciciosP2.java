@@ -15,14 +15,9 @@ public class EjerciciosP2 {
         
         Cliente cliente1 = new Cliente("38282821F", "Gonzalo");
         
-        Reserva reserva1 = new Reserva("09/10/2022", "12/10/2022", cliente1, hotel2);
-        
         hotel2.addReserva(cliente1, "09/10/2022", "12/10/2022");
-        cliente1.addReserva(reserva1);
         
-        Reserva reserva2 = new Reserva("15/11/2022", "18/11/2022", cliente1, hotel2);
         hotel2.addReserva(cliente1, "15/11/2022", "18/11/2022");
-        cliente1.addReserva(reserva2);
         
         
         System.out.println("Reservas del hotel 2:");
