@@ -7,11 +7,11 @@ module Controlador_laberinto
     def initialize (modelo)
       @vidas = 0
       @modelo = modelo
-      @estado = Estado_juego.EN_ENTRADA_LABERINTO
+      @estado = Controlador_laberinto::Estado_juego::EN_ENTRADA_LABERINTO
     end
 
     def estado()
-
+      @estado
     end
 
     def entrar(vidas)
