@@ -54,9 +54,10 @@ public class Casilla {
         return numCasas + numHoteles;
     }    
     
-    
+    //DUDA: ¿Esto es así?
     boolean comprar (Jugador jugador){
-        return true;
+        propietario = jugador;
+        return jugador.paga(precioCompra);
     }
     
     boolean construirCasa (Jugador jugador){
@@ -117,15 +118,30 @@ public class Casilla {
     }
     
     void recibeJugador(int iactual, ArrayList<Jugador> todos){
+        if (tipo == TipoCasilla.CALLE)
+            recibeJugador_calle(iactual, todos);
         
+        if (tipo == TipoCasilla.SORPRESA)
+            recibeJugador_sorpresa(iactual, todos);
+        
+        if (tipo == TipoCasilla.DESCANSO)
+            informe(iactual,todos);
     }
     
     private void recibeJugador_calle(int iactual, ArrayList<Jugador> todos){
-        
+        informe (iactual, todos);
+        Jugador jugador = todos.get(iactual);
+        if (!this.tienePropietario()){
+            jugador.puedeComprarCasilla();
+        } else{
+            tramitarAlquiler(jugador);
+        }
     }
 
     private void recibeJugador_sorpresa(int iactual, ArrayList<Jugador> todos){
-        
+        Sorpresa sorpresa = mazo.siguiente();
+        informe(iactual, todos);
+        sorpresa.aplicarAJugador(iactual, todos);
     }
     
     public boolean tienePropietario(){

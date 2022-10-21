@@ -47,11 +47,26 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean comprar (Casilla titulo){
-        return true;
-    }    
+        boolean result = false;
+        if (puedeComprar){
+            float precio = titulo.getPrecioCompra();
+            if (puedoGastar(precio)){
+                result = titulo.comprar(this);
+                propiedades.add(titulo);
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo);
+                puedeComprar = false;
+            } else{
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " no tiene saldo para comprar "
+                        + "la propiedad " + titulo);
+            }
+        }
+        return result;
+    }
     
     boolean construirCasa (int ip){
-        return true;
+        boolean result = false;
+        
+        return result;
     }
     
     boolean construirHotel (int ip){
@@ -151,7 +166,6 @@ public class Jugador implements Comparable<Jugador> {
         return saldo >= precio;
     }
     
-    //DUDA: ¿Cuál es el precio de edificar una casa?
     private boolean puedoEdificarCasa(Casilla propiedad){
         boolean puedoEdificar = false;
         
@@ -161,7 +175,6 @@ public class Jugador implements Comparable<Jugador> {
         return puedoEdificar;
     }
     
-    //DUDA: ¿Cuál es el precio de edificar un hotel?
     private boolean puedoEdificarHotel(Casilla propiedad){
         boolean puedoEdificar = false;
         
