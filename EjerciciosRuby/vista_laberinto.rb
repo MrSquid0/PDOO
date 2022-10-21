@@ -48,12 +48,4 @@ module EjerciciosRuby
       puts "La habitación actual es " + habitacion.to_s + " y el número de vidas restantes es " + vidas.to_s
     end
   end
-
-  laberinto = Modelo_laberinto::Laberinto.new
-
-  controlador = Controlador_laberinto::Controlador.new(laberinto)
-
-  test = Vista_laberinto.new(controlador)
-
-  test.menu_usuario
 end
