@@ -13,11 +13,15 @@ module Controlador_laberinto
     end
 
     def entrar(vidas)
-
+      Modelo_laberinto::Elemento_separador::habitacion_al_otro_lado(habitacion_usuario)
     end
 
     def intentar_avanzar()
-
+      @numaleatorio = Random.rand(0,3)
+      if @habitacion_usuario == nil
+        exit 0
+      end
+      #debe devolver siempre el número con la dirección de avance
     end
 
     attr_reader :estado
