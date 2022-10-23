@@ -212,7 +212,6 @@ public class Jugador implements Comparable<Jugador> {
         return tieneAlgo;
     }
     
-    //DUDA: ¿Tengo que imprimir por pantalla las constantes?
     public String toString(){
         String puede;
         if (puedeComprar)
@@ -221,9 +220,9 @@ public class Jugador implements Comparable<Jugador> {
             puede = "NO";
             
         String cadena = "Número máximo de casas: " + CasasMax + ". Número máximo de casas por hotel: " + CasasPorHotel
-                + ". Casilla actual: " + casillaActual + ". Número máximo de hoteles: " + HotelesMax +
-                ". Nombre del jugador: " + nombre + ". Dinero por pasar por salida: " + PasoPorSalida +
-                ". Puede comprar: " + puede + ". Saldo: " + saldo + ". Saldo inicial: " + SaldoInicial;
+                + ".\n Casilla actual: " + casillaActual + ". Número máximo de hoteles: " + HotelesMax +
+                ".\n Nombre del jugador: " + nombre + ". Dinero por pasar por salida: " + PasoPorSalida +
+                ".\n Puede comprar: " + puede + ". Saldo: " + saldo + ". Saldo inicial: " + SaldoInicial;
         return cadena;
     }
 }
