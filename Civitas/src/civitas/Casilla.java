@@ -164,7 +164,7 @@ public class Casilla {
     
     public String toString(){
         String cadena = Nombre + ". Precios: Compra: " + precioCompra + ", Edificar: " + precioEdificar +
-                ", Alquiler base: " + precioBaseAlquiler + ", Casas: " + numCasas + ", Hoteles: " + numHoteles;
+                ", Alquiler base: " + precioBaseAlquiler + ", Casas: " + numCasas + ", Hoteles: " + numHoteles + ".\n";
         return cadena;
     }
 }

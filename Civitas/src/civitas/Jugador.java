@@ -53,11 +53,11 @@ public class Jugador implements Comparable<Jugador> {
             if (puedoGastar(precio)){
                 result = titulo.comprar(this);
                 propiedades.add(titulo);
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo + "\n");
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo + ".\n");
                 puedeComprar = false;
             } else{
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " no tiene saldo para comprar "
-                        + "la propiedad " + titulo + "\n");
+                        + "la propiedad " + titulo + ".\n");
             }
         }
         return result;
@@ -73,7 +73,7 @@ public class Jugador implements Comparable<Jugador> {
             if(puedoEdificar){
                 result = propiedad.construirCasa(this);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye casa en la propiedad " + ip + 
-                        propiedades.get(ip)+ "\n");                
+                        propiedades.get(ip)+ ".\n");                
             }
         }
         return result;
@@ -87,7 +87,7 @@ public class Jugador implements Comparable<Jugador> {
             if (puedoEdificarHotel){
                 result = propiedad.construirHotel(this);
                 propiedad.derruirCasas(CasasPorHotel, this);
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip);
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip + ".\n");
             }
         }
         return true;
@@ -154,7 +154,7 @@ public class Jugador implements Comparable<Jugador> {
         casillaActual = numCasilla;
         puedeComprar = false;
         Diario.getInstance().ocurreEvento("El jugador se ha movido de la casilla " 
-                + casillaActual + " a la casilla " + numCasilla);
+                + casillaActual + " a la casilla " + numCasilla + ".\n");
         return true;
     }
     
@@ -173,7 +173,7 @@ public class Jugador implements Comparable<Jugador> {
     boolean pasaPorSalida(){
         recibe(PasoPorSalida);
         Diario.getInstance().ocurreEvento("Un jugador ha pasado por la casilla de salida y ha"
-                + " recibido la cantidad de " + PasoPorSalida);
+                + " recibido la cantidad de " + PasoPorSalida + ".\n");
         return true;
     }
     
@@ -222,7 +222,7 @@ public class Jugador implements Comparable<Jugador> {
         String cadena = "Número máximo de casas: " + CasasMax + ". Número máximo de casas por hotel: " + CasasPorHotel
                 + ".\n Casilla actual: " + casillaActual + ". Número máximo de hoteles: " + HotelesMax +
                 ".\n Nombre del jugador: " + nombre + ". Dinero por pasar por salida: " + PasoPorSalida +
-                ".\n Puede comprar: " + puede + ". Saldo: " + saldo + ". Saldo inicial: " + SaldoInicial;
+                ".\n Puede comprar: " + puede + ". Saldo: " + saldo + ". Saldo inicial: " + SaldoInicial + ".\n";
         return cadena;
     }
 }

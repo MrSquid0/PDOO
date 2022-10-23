@@ -41,9 +41,9 @@ public class Dado {
     public void setDebug (boolean d){
         debug = d;
         if (debug)
-            Diario.getInstance().ocurreEvento("Modo debug activado");
+            Diario.getInstance().ocurreEvento("Modo debug activado.\n");
         else
-            Diario.getInstance().ocurreEvento("Modo debug desactivado");
+            Diario.getInstance().ocurreEvento("Modo debug desactivado.\n");
     }
     
     public boolean getDebug(){

@@ -20,7 +20,7 @@ public class MazoSorpresas {
         debug = d;
         this.init();
         if (debug)
-            Diario.getInstance().ocurreEvento("el Modo debug está activado");
+            Diario.getInstance().ocurreEvento("El modo debug está activado.\n");
     }
     
     MazoSorpresas(){
