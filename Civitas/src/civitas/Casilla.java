@@ -54,18 +54,19 @@ public class Casilla {
         return numCasas + numHoteles;
     }    
     
-    //DUDA: ¿Esto es así?
     boolean comprar (Jugador jugador){
         propietario = jugador;
         return jugador.paga(precioCompra);
     }
     
     boolean construirCasa (Jugador jugador){
+        jugador.paga(precioEdificar);
         numCasas++;
         return true;
     }
 
     boolean construirHotel (Jugador jugador){
+        jugador.paga(precioEdificar);
         numHoteles++;
         return true;
     }
