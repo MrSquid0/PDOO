@@ -70,7 +70,7 @@ public class Jugador implements Comparable<Jugador> {
         if (existe){
             Casilla propiedad = propiedades.get(ip);
             puedoEdificarCasa = puedoEdificarCasa(propiedad);
-            if(puedoEdificarCasa){
+            if(puedoEdificarCasa && existe){
                 result = propiedad.construirCasa(this);
                 if(result)
                     Diario.getInstance().ocurreEvento("El jugador" + nombre + " construye casa en la propiedad " + ip + "\n" + propiedades.get(ip)+ "\n");
