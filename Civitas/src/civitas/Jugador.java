@@ -65,23 +65,42 @@ public class Jugador implements Comparable<Jugador> {
     
     boolean construirCasa (int ip){
         boolean result = false;
-        boolean puedoEdificarCasa = false;
         boolean existe = existeLaPropiedad(ip);
+        boolean puedoEdificar = false;
         if (existe){
             Casilla propiedad = propiedades.get(ip);
-            puedoEdificarCasa = puedoEdificarCasa(propiedad);
-            if(puedoEdificarCasa && existe){
+            puedoEdificar = puedoEdificarCasa(propiedad);
+            float precioEdificar = propiedad.getPrecioEdificar();
+            if (puedoGastar(precioEdificar) && (propiedad.getNumCasas() < getCasasMax()))
+                puedoEdificar = true;
+            if(puedoEdificar)
+                paga(precioEdificar);
                 result = propiedad.construirCasa(this);
-                if(result)
-                    Diario.getInstance().ocurreEvento("El jugador" + nombre + " construye casa en la propiedad " + ip + "\n" + propiedades.get(ip)+ "\n");
+                Diario.getInstance().ocurreEvento("El jugador" + nombre + " construye casa en la propiedad " + ip + "\n" + propiedades.get(ip)+ "\n");
             }
-        }
         return result;
     }
     
     boolean construirHotel (int ip){
+        boolean result = false;
+        if (existeLaPropiedad(ip)){
+            Casilla propiedad = propiedades.get(ip);
+            boolean puedoEdificarHotel = puedoEdificarHotel(propiedad);
+            float precioEdificar = propiedad.getPrecioEdificar();
+            if ((puedoGastar(precioEdificar)) && (propiedad.getNumHoteles() < getHotelesMax())
+                    && (propiedad.getNumCasas() >= getCasasPorHotel())){
+                puedoEdificarHotel = true;
+            }
+            
+            if (puedoEdificarHotel){
+                result = propiedad.construirHotel(this);
+                paga(precioEdificar);
+                propiedad.derruirCasas(CasasPorHotel, this);
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip);
+            }
+        }
         return true;
-    }   
+    }
     
     boolean enBancarrota(){
         boolean arruinado = false;

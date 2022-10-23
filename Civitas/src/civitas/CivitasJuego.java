@@ -66,11 +66,23 @@ public class CivitasJuego {
     }
     
     private void avanzaJugador(){
-        //Sin implementar
+        Jugador jugadorActual = getJugadorActual();
+        int posicionActual = jugadorActual.getCasillaActual();
+        int tirada = Dado.getInstance().tirar();
+        int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
+        Casilla casilla = tablero.getCasilla(posicionNueva);
+        contabilizarPasosPorSalida();
+        jugadorActual.moverACasilla(posicionNueva);
+        casilla.recibeJugador(indiceJugadorActual, jugadores);
     }
     
     public boolean comprar(){
-        return true; //Sin implementar
+        boolean res = comprar();
+        Jugador jugadorActual = getJugadorActual();
+        int numCasillaActual = jugadorActual.getCasillaActual();
+        Casilla casilla = tablero.getCasilla(numCasillaActual);
+        res = jugadorActual.comprar(casilla);
+        return res;
     }
     
     public boolean construirCasa(int ip){
@@ -118,8 +130,6 @@ public class CivitasJuego {
             indiceJugadorActual = 0;
     }
     
-    //DUDA: Al estar ya puesta la interfaz Comparable en jugador,
-    //¿tengo que hacer algo más?
     private ArrayList<Jugador> ranking(){
         ArrayList <Jugador> ranking = new ArrayList<>();
         for(int i = 0; i < jugadores.size(); i++)
@@ -131,7 +141,16 @@ public class CivitasJuego {
     
 
     public OperacionJuego siguientePaso(){
-        return OperacionJuego.AVANZAR; //Sin implementar
+        Jugador jugadorActual = getJugadorActual();
+        OperacionJuego operacion = gestorEstados.siguienteOperacion(jugadorActual, estado);
+        if (operacion == OperacionJuego.PASAR_TURNO){
+            pasarTurno();
+            siguientePasoCompletado(operacion);
+        } if (operacion == OperacionJuego.AVANZAR){
+            avanzaJugador();
+            siguientePasoCompletado(operacion);
+        }
+        return operacion;
     }
     
     public void siguientePasoCompletado(OperacionJuego operacion){

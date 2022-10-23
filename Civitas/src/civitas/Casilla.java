@@ -107,10 +107,6 @@ public class Casilla {
         return numHoteles;
     }
     
-    int getNumHoteles(){
-        return numHoteles;
-    }    
-    
     void informe (int actual, ArrayList<Jugador> todos){
         Diario.getInstance().ocurreEvento(todos.get(actual).toString());
     }
