@@ -61,10 +61,12 @@ public class Casilla {
     }
     
     boolean construirCasa (Jugador jugador){
+        numCasas++;
         return true;
     }
 
     boolean construirHotel (Jugador jugador){
+        numHoteles++;
         return true;
     }
 
@@ -104,6 +106,10 @@ public class Casilla {
     int getNumHoteles(){
         return numHoteles;
     }
+    
+    int getNumHoteles(){
+        return numHoteles;
+    }    
     
     void informe (int actual, ArrayList<Jugador> todos){
         Diario.getInstance().ocurreEvento(todos.get(actual).toString());
