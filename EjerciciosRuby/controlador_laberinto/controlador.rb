@@ -24,7 +24,7 @@ module Controlador_laberinto
     end
 
     def intentar_avanzar()
-      numaleatorio = rand(3);
+      numaleatorio = rand(3)
 
       if @habitacion_usuario.pasar(numaleatorio)
         hab_actual = @habitacion_usuario.get_lado(numaleatorio).habitacion_al_otro_lado(habitacion_usuario)
