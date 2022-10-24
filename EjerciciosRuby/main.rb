@@ -1,7 +1,11 @@
+require_relative './modelo_laberinto/laberinto'
+require_relative './controlador_laberinto/controlador'
+require_relative './vista_laberinto'
+
 modelo = Modelo_laberinto::Laberinto.new
 
 controlador = Controlador_laberinto::Controlador.new(modelo)
 
-test = Vista_laberinto.new(controlador)
+test = EjerciciosRuby::Vista_laberinto.new(controlador)
 
 test.menu_usuario

@@ -23,7 +23,7 @@ class Vista2_laberinto
     values=[*1..10].map!(&:to_s)
    
     case estado
-    when Estado_juego::EN_ENTRADA_LABERINTO
+    when Controlador_laberinto::Estado_juego::EN_ENTRADA_LABERINTO
      
       puts laberinto(!@@DENTRO, @@VIVO) # dentro y vivo
        puts usuario_en_entrada
@@ -39,7 +39,7 @@ class Vista2_laberinto
       @controlador.entrar(st.to_i)
      
      
-    when Estado_juego::DENTRO_VIVO
+    when Controlador_laberinto::Estado_juego::DENTRO_VIVO
       puts laberinto(true, true)
  
       puts "Pulse una tecla"
@@ -47,12 +47,12 @@ class Vista2_laberinto
       @movimiento=@controlador.intentar_avanzar()
       
       
-    when Estado_juego::EN_SALIDA_LABERINTO
+    when Controlador_laberinto::Estado_juego::EN_SALIDA_LABERINTO
       puts usuario_en_salida
       puts laberinto(false, true)
       exit 0
       
-    when Estado_juego::DENTRO_MUERTO
+    when Controlador_laberinto::Estado_juego::DENTRO_MUERTO
       puts laberinto(true, false)
       exit 0
     end
