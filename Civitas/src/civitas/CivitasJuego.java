@@ -130,7 +130,7 @@ public class CivitasJuego {
             indiceJugadorActual = 0;
     }
     
-    private ArrayList<Jugador> ranking(){
+    public ArrayList<Jugador> ranking(){
         ArrayList <Jugador> ranking = new ArrayList<>();
         for(int i = 0; i < jugadores.size(); i++)
             ranking.add(jugadores.get(i));

@@ -5,7 +5,7 @@
 
 package civitas;
 
-enum OperacionJuego{
+public enum OperacionJuego{
     PASAR_TURNO, 
     AVANZAR, 
     COMPRAR,
