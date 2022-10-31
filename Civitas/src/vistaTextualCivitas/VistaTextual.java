@@ -30,7 +30,7 @@ public class VistaTextual implements Vista {
   
     @Override         
     public  void pausa() {
-        System.out.print ("\nPulsa una tecla");
+        System.out.println("Pulsa una tecla\n");
         in.nextLine();
     }
 
@@ -86,12 +86,12 @@ public class VistaTextual implements Vista {
             for (int i=0; i<tamanio; i++){
                 propiedades = propiedadesCasilla.get(i).toString();
             }
-        }
-        
-        if (!juegoModel.finalDelJuego()){
-            int indice = juegoModel.getJugadorActual().getCasillaActual();
-            Casilla casillaActual = propiedadesCasilla.get(indice);
-            propiedades += "Casilla actual: " + casillaActual.toString();
+            
+            if (!juegoModel.finalDelJuego()){
+                int indice = juegoModel.getJugadorActual().getCasillaActual();
+                Casilla casillaActual = propiedadesCasilla.get(indice);
+                propiedades += "Casilla actual: " + casillaActual.toString();
+            }
         }
         
         if (juegoModel.finalDelJuego()){
@@ -108,7 +108,7 @@ public class VistaTextual implements Vista {
         int indiceCasillaActual = juegoModel.getJugadorActual().getCasillaActual();
         String casillaActual = juegoModel.getJugadorActual().getPropiedades().get(indiceCasillaActual).toString();
       
-        int opcionElegida = menu ("Acabas de llegar a la casilla\n" + casillaActual + "\n¿Quieres comprarla?",
+        int opcionElegida = menu ("Acabas de llegar a la casilla " + casillaActual + "\n¿Quieres comprarla?",
                         new ArrayList<> (Arrays.asList("SI","NO")));
     
         return (Respuesta.values()[opcionElegida]);        
@@ -125,8 +125,8 @@ public class VistaTextual implements Vista {
     public int elegirPropiedad(){
         int numMaxPropiedades = juegoModel.getJugadorActual().getPropiedades().size();
         int propiedadElegida = leeEntero(numMaxPropiedades, 
-                "¿En qué propiedad quieres realizar la gestión?", 
-                "Propiedad no válida");
+                "¿En qué propiedad quieres realizar la gestión?\n", 
+                "\nPropiedad no válida");
         return propiedadElegida;
     }
 

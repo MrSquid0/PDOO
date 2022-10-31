@@ -29,25 +29,25 @@ public class CivitasJuego {
     
     private void inicializaTablero(MazoSorpresas mazo){
         //Casilla de salida ya agregada al estar inicializado el tablero
-        tablero.añadeCasilla(new Casilla("Velázquez", 60f, 30f, 20f));
-        tablero.añadeCasilla(new Casilla("Salamanca", 80f, 40f, 27f));
-        tablero.añadeCasilla(new Casilla("Castellana", 100f, 50f, 33f));
-        tablero.añadeCasilla(new Casilla("Tirso de M.", 120f, 60f, 40f));
-        tablero.añadeCasilla(new Casilla("Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla("Lavapiés", 140f, 70f, 47f));
-        tablero.añadeCasilla(new Casilla("Goya", 150f, 75f, 50f));
-        tablero.añadeCasilla(new Casilla("Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla("Mataelpino", 200f, 100f, 67f));
-        tablero.añadeCasilla(new Casilla("Puro Relax"));
-        tablero.añadeCasilla(new Casilla("Leganitos", 220f, 110f, 73f));
-        tablero.añadeCasilla(new Casilla("Serrano", 240f, 120f, 80f));
-        tablero.añadeCasilla(new Casilla("P. del Prado", 260f, 130f, 87f));
-        tablero.añadeCasilla(new Casilla("Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla("Valdelatas", 280f, 140f, 93f));
-        tablero.añadeCasilla(new Casilla("Méndez A.", 300f, 150f, 100f));
-        tablero.añadeCasilla(new Casilla("Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla("O`Donell", 350f, 175f, 117f));
-        tablero.añadeCasilla(new Casilla("San Jerónimo", 400f, 200f, 133f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Velázquez", 60f, 30f, 20f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Salamanca", 80f, 40f, 27f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Castellana", 100f, 50f, 33f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Tirso de M.", 120f, 60f, 40f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Lavapiés", 140f, 70f, 47f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Goya", 150f, 75f, 50f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Mataelpino", 200f, 100f, 67f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.DESCANSO,"Puro Relax"));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Leganitos", 220f, 110f, 73f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Serrano", 240f, 120f, 80f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"P. del Prado", 260f, 130f, 87f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Sorpresa", mazo));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Valdelatas", 280f, 140f, 93f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Méndez A.", 300f, 150f, 100f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Sorpresa", mazo));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"O`Donell", 350f, 175f, 117f));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"San Jerónimo", 400f, 200f, 133f));
     }    
     
     public CivitasJuego(ArrayList<String> nombres, boolean debug){

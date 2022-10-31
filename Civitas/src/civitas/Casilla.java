@@ -19,7 +19,6 @@ public class Casilla {
     Jugador propietario;
     
     private void init(){
-        tipo = TipoCasilla.CALLE;
         mazo = new MazoSorpresas();
         Nombre = "";
         precioCompra = 0f;
@@ -27,24 +26,31 @@ public class Casilla {
         precioBaseAlquiler = 0f;
         numCasas = 0;
         numHoteles = 0;
+        propietario = null;
     }
     
-    Casilla (String titulo, float precioCompra, float precioEdificar, float precioBaseAlquiler){
+        //Constructor para casillas de tipo calle
+    Casilla (TipoCasilla tipo, String titulo, float precioCompra, 
+            float precioEdificar, float precioBaseAlquiler){
         init();
-        tipo = TipoCasilla.CALLE;
+        this.tipo = TipoCasilla.CALLE;
+        this.Nombre = titulo;
         this.precioCompra = precioCompra;
         this.precioEdificar = precioEdificar;
         this.precioBaseAlquiler = precioBaseAlquiler;
     }
     
-    Casilla (String nombre, MazoSorpresas mazo){
+    
+    //Constructor para casillas de tipo sorpresa
+    Casilla (TipoCasilla tipo, String nombre, MazoSorpresas mazo){
         init();
         tipo = TipoCasilla.SORPRESA;
         this.Nombre = nombre;
         this.mazo = mazo;
     }    
     
-    Casilla (String nombre){
+    //Constructor para casillas de tipo descanso    
+    Casilla (TipoCasilla tipo, String nombre){
         init();
         tipo = TipoCasilla.DESCANSO;
         this.Nombre = nombre;
@@ -107,6 +113,10 @@ public class Casilla {
     int getNumHoteles(){
         return numHoteles;
     }
+
+    public String getNombre() {
+        return Nombre;
+    }
     
     void informe (int actual, ArrayList<Jugador> todos){
         Diario.getInstance().ocurreEvento(todos.get(actual).toString());
@@ -163,8 +173,14 @@ public class Casilla {
     }
     
     public String toString(){
-        String cadena = Nombre + ". Precios: Compra: " + precioCompra + ", Edificar: " + precioEdificar +
-                ", Alquiler base: " + precioBaseAlquiler + ", Casas: " + numCasas + ", Hoteles: " + numHoteles + ".\n";
+        String cadena = "Nombre de la casilla: " + Nombre + 
+                "\n---- Precios: ----" +
+                "\n- Compra: " + precioCompra + 
+                "\n- Edificar: " + precioEdificar +
+                "\n- Alquiler base: " + precioBaseAlquiler +
+                "\n------------------" +
+                "\nCasas: " + numCasas + 
+                "\nHoteles: " + numHoteles + ".\n";
         return cadena;
     }
 }

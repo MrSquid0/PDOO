@@ -25,6 +25,10 @@ public class Jugador implements Comparable<Jugador> {
     
     Jugador(String nombre){
         this.nombre = nombre;
+        propiedades = new ArrayList<>();
+        casillaActual = 0;
+        puedeComprar = false;
+        saldo = SaldoInicial;
     }
     
     protected Jugador (Jugador otro){
@@ -32,6 +36,7 @@ public class Jugador implements Comparable<Jugador> {
         this.nombre = otro.nombre;
         this.puedeComprar = otro.puedeComprar;
         this.saldo = otro.saldo;
+        propiedades = new ArrayList<>();
     }
     
     int cantidadCasasHoteles(){
@@ -151,10 +156,10 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean moverACasilla (int numCasilla){
-        casillaActual = numCasilla;
         puedeComprar = false;
         Diario.getInstance().ocurreEvento("El jugador se ha movido de la casilla " 
                 + casillaActual + " a la casilla " + numCasilla + ".\n");
+        casillaActual = numCasilla;
         return true;
     }
     
@@ -206,9 +211,9 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean tieneAlgoQueGestionar(){
-        boolean tieneAlgo = false;
-        if (propiedades.contains(this))
-            tieneAlgo = true;
+        boolean tieneAlgo = true;
+        if (propiedades == null)
+            tieneAlgo = false;
         return tieneAlgo;
     }
     
@@ -219,10 +224,10 @@ public class Jugador implements Comparable<Jugador> {
         else
             puede = "NO";
             
-        String cadena = "Número máximo de casas: " + CasasMax + ". Número máximo de casas por hotel: " + CasasPorHotel
-                + ".\n Casilla actual: " + casillaActual + ". Número máximo de hoteles: " + HotelesMax +
-                ".\n Nombre del jugador: " + nombre + ". Dinero por pasar por salida: " + PasoPorSalida +
-                ".\n Puede comprar: " + puede + ". Saldo: " + saldo + ". Saldo inicial: " + SaldoInicial + ".\n";
+        String cadena = "Casilla actual: " + casillaActual +
+                        "\nNombre del jugador: " + nombre +
+                         ".\nPuede comprar: " + puede +
+                         "\nSaldo: " + saldo + "\n";
         return cadena;
     }
 }

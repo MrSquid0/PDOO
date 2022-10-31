@@ -4,17 +4,18 @@ package civitas;
 import java.util.Random;
 
 public class Dado {
-    private final Random random = new Random();
+    private final Random random;
     
     private int ultimoResultado;
     private boolean debug;
     
     static final private Dado instance = new Dado();
     
-    private static int VALORDEBUG = 1;
-    private static int VALORESDADO = 6;
+    private final static int VALORDEBUG = 1;
+    private final static int VALORESDADO = 6;
     
     private Dado(){
+        random = new Random();
         ultimoResultado = 0;
         debug = false;
     }
@@ -34,7 +35,7 @@ public class Dado {
     }
     
     int quienEmpieza (int n){
-        int jugador = random.nextInt(1, n+1);
+        int jugador = random.nextInt(0, n);
         return jugador;
     }
     

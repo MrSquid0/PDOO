@@ -11,7 +11,7 @@ public class MazoSorpresas {
     private boolean debug;
     
     private void init(){
-        sorpresas = new ArrayList<Sorpresa>();
+        sorpresas = new ArrayList<>();
         barajada = false;
         usadas = 0;
     }
