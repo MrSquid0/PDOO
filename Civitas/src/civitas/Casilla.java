@@ -180,7 +180,7 @@ public class Casilla {
                 "\n- Alquiler base: " + precioBaseAlquiler +
                 "\n------------------" +
                 "\nCasas: " + numCasas + 
-                "\nHoteles: " + numHoteles + ".\n";
+                "\nHoteles: " + numHoteles + "\n";
         return cadena;
     }
 }

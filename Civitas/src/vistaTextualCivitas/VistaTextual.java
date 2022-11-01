@@ -81,7 +81,7 @@ public class VistaTextual implements Vista {
         
         if(propiedadesJugadorActual.isEmpty())
             propiedades = "El jugador " + juegoModel.getJugadorActual().getNombre() + 
-                    " no tiene propiedades\n";
+                    " no tiene propiedades.\n";
         else{
             int tamanio = propiedadesJugadorActual.size();
             for (int i=0; i<tamanio; i++){
@@ -125,11 +125,13 @@ public class VistaTextual implements Vista {
     @Override
     public int elegirPropiedad(){
         int numMaxPropiedades = juegoModel.getJugadorActual().getPropiedades().size();
-        String propiedades = "\n---- Propiedades de " + juegoModel.getJugadorActual().getNombre() + " ----\n";
+        String propiedades = "\n" + separador + "Propiedades de " +
+                juegoModel.getJugadorActual().getNombre() + separador + "\n";
         if (!juegoModel.getJugadorActual().getPropiedades().isEmpty()){
             for (int i=0; i<juegoModel.getJugadorActual().getPropiedades().size(); i++)
-                propiedades += i + "--> " + juegoModel.getJugadorActual().getPropiedades().get(i).getNombre();
+                propiedades += i + "--> " + juegoModel.getJugadorActual().getPropiedades().get(i).getNombre() + "\n";
         }
+        propiedades += separador + separador + "\n";
         int propiedadElegida = leeEntero(numMaxPropiedades, 
                 propiedades +"\n\n¿En qué propiedad quieres realizar la gestión?\n"
                         + "Introduce un índice válido de la lista de propiedades: ", 

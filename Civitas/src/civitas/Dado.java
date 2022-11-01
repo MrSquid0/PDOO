@@ -27,7 +27,7 @@ public class Dado {
     int tirar(){
         int numero;
         if (!debug){
-            numero = random.nextInt(1, 6);
+            numero = random.nextInt(1, 7); //7 no incluido
         } else
             numero = 1;
         ultimoResultado = numero;
@@ -35,7 +35,7 @@ public class Dado {
     }
     
     int quienEmpieza (int n){
-        int jugador = random.nextInt(0, n);
+        int jugador = random.nextInt(0,n);
         return jugador;
     }
     

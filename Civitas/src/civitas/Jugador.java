@@ -77,8 +77,8 @@ public class Jugador implements Comparable<Jugador> {
             puedoEdificar = puedoEdificarCasa(propiedad);
             if(puedoEdificar){
                 result = propiedad.construirCasa(this);
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye casa en la propiedad " + ip + 
-                        propiedades.get(ip)+ ".\n");                
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye casa en su propiedad " 
+                        + propiedad.getNombre() + ".\n");                
             }
         }
         return result;
@@ -92,7 +92,8 @@ public class Jugador implements Comparable<Jugador> {
             if (puedoEdificarHotel){
                 result = propiedad.construirHotel(this);
                 propiedad.derruirCasas(CasasPorHotel, this);
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip + ".\n");
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en su propiedad " 
+                        + propiedad.getNombre() + ".\n");
             }
         }
         return true;
@@ -158,8 +159,10 @@ public class Jugador implements Comparable<Jugador> {
     
     boolean moverACasilla (int numCasilla){
         puedeComprar = false;
+        int casillaActualMasUno = casillaActual+1;
+        int numCasillaMasUno = numCasilla+1;
         Diario.getInstance().ocurreEvento("El jugador " + this.getNombre() + " se ha movido de la casilla " 
-                + casillaActual + " a la casilla " + numCasilla + ".\n");
+                + casillaActualMasUno + " a la casilla " + numCasillaMasUno + ".\n");
         casillaActual = numCasilla;
         return true;
     }
@@ -195,19 +198,32 @@ public class Jugador implements Comparable<Jugador> {
     private boolean puedoEdificarCasa(Casilla propiedad){
         boolean puedoEdificar = false;
         
-        if ( (puedoGastar(propiedad.getPrecioEdificar())) && (Jugador.CasasMax >= propiedad.getNumCasas())){
+        if ( (puedoGastar(propiedad.getPrecioEdificar())) 
+                && (Jugador.CasasMax > propiedad.getNumCasas())
+                && (propiedad.getNumHoteles() < Jugador.HotelesMax))
             puedoEdificar = true;
-        }
+        else
+            Diario.getInstance().ocurreEvento("\nNo has podido construir la casa "
+                    + "por uno de los siguientes motivos: \n"
+                    + "- No tienes dinero suficiente.\n"
+                    + "- Has superado el número máximo de casas.\n"
+                    + "- Has superado el número máximo de hoteles.\n");   
         return puedoEdificar;
     }
     
     private boolean puedoEdificarHotel(Casilla propiedad){
         boolean puedoEdificar = false;
         
-        if ( (puedoGastar(propiedad.getPrecioEdificar())) && (Jugador.HotelesMax >= propiedad.getNumHoteles())
-                && (Jugador.CasasPorHotel >= propiedad.getNumCasas()) ){
+        if ( (puedoGastar(propiedad.getPrecioEdificar())) 
+                && (Jugador.HotelesMax > propiedad.getNumHoteles())
+                && (Jugador.CasasPorHotel == propiedad.getNumCasas()) )
             puedoEdificar = true;
-        }
+        else
+            Diario.getInstance().ocurreEvento("\nNo has podido construir el hotel "
+                    + "por uno de los siguientes motivos: \n"
+                    + "- No tienes dinero suficiente.\n"
+                    + "- Has superado el número máximo de hoteles.\n"
+                    + "- No tienes casas suficientes para construir un hotel.\n");   
         return puedoEdificar;
     }
     
@@ -219,8 +235,9 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     public String toString(){
+        int casillaActualMasUno = casillaActual+1;
             
-        String cadena = "Casilla actual: " + casillaActual +
+        String cadena = "Casilla actual: " + casillaActualMasUno +
                         "\nNombre del jugador: " + nombre +
                          "\nSaldo: " + saldo + "\n";
         return cadena;

@@ -59,7 +59,7 @@ public class CivitasJuego {
         estado = gestorEstados.estadoInicial();
         Dado.getInstance().setDebug(debug);
         indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
-        System.out.println("Comienza el juego. El primer turno es para el jugador " + 
+        System.out.println("Comienza el juego Civitas. El primer turno es para el jugador " + 
                 jugadores.get(indiceJugadorActual).getNombre() + ".\n");
         mazo = new MazoSorpresas(debug);
         inicializaMazoSorpresas();
@@ -73,6 +73,7 @@ public class CivitasJuego {
         int tirada = Dado.getInstance().tirar();
         int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
         Casilla casilla = tablero.getCasilla(posicionNueva);
+        Diario.getInstance().ocurreEvento("Has sacado un " + tirada + ".");
         contabilizarPasosPorSalida();
         jugadorActual.moverACasilla(posicionNueva);
         casilla.recibeJugador(indiceJugadorActual, jugadores);

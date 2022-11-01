@@ -41,7 +41,6 @@ public class Controlador {
                             juegoModel.construirCasa(propiedad);
                         else
                             juegoModel.construirHotel(propiedad);
-                        
                     } else
                         juegoModel.siguientePasoCompletado(siguientePaso);   
                     } else{
