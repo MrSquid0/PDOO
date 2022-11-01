@@ -3,6 +3,7 @@
 package controladorCivitas;
 
 import civitas.CivitasJuego;
+import civitas.Diario;
 import civitas.OperacionJuego;
 import vistaTextualCivitas.VistaTextual;
 import civitas.OperacionInmobiliaria;
@@ -32,7 +33,8 @@ public class Controlador {
                     juegoModel.siguientePasoCompletado(siguientePaso);
                     break;
                 case GESTIONAR:
-                    OperacionInmobiliaria oper = vista.elegirOperacion();
+                    if (!juegoModel.getJugadorActual().getPropiedades().isEmpty()){
+                       OperacionInmobiliaria oper = vista.elegirOperacion();
                     if (oper != OperacionInmobiliaria.TERMINAR){
                         int propiedad = vista.elegirPropiedad();
                         if (oper == OperacionInmobiliaria.CONSTRUIR_CASA)
@@ -41,8 +43,13 @@ public class Controlador {
                             juegoModel.construirHotel(propiedad);
                         
                     } else
-                        juegoModel.siguientePasoCompletado(siguientePaso);
-                    break;      
+                        juegoModel.siguientePasoCompletado(siguientePaso);   
+                    } else{
+                        System.out.println("\nEl jugador " + juegoModel.getJugadorActual().getNombre() +
+                                " no tiene ninguna propiedad, por lo que no puede gestionar nada.");
+                        juegoModel.siguientePasoCompletado(siguientePaso);  
+                    }
+                    break; 
             }
         }
         juegoModel.ranking();

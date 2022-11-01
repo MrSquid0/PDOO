@@ -219,15 +219,9 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     public String toString(){
-        String puede;
-        if (puedeComprar)
-            puede = "SÍ";
-        else
-            puede = "NO";
             
         String cadena = "Casilla actual: " + casillaActual +
                         "\nNombre del jugador: " + nombre +
-                         ".\nPuede comprar: " + puede +
                          "\nSaldo: " + saldo + "\n";
         return cadena;
     }
