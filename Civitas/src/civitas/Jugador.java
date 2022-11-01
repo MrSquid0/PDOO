@@ -58,7 +58,7 @@ public class Jugador implements Comparable<Jugador> {
             if (puedoGastar(precio)){
                 result = titulo.comprar(this);
                 propiedades.add(titulo);
-                Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo + ".\n");
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " compra la propiedad " + titulo.getNombre() + ".\n");
                 puedeComprar = false;
             } else{
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " no tiene saldo para comprar "
@@ -149,15 +149,16 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean modificarSaldo(float cantidad){
-        saldo = cantidad;
+        float saldoModificado = saldo+cantidad;
         Diario.getInstance().ocurreEvento("El saldo fue modificado de " 
-                + saldo + " a " + cantidad + ".\n");
+                + saldo + " a " + saldoModificado + ".\n");
+        saldo += cantidad;
         return true;
     }
     
     boolean moverACasilla (int numCasilla){
         puedeComprar = false;
-        Diario.getInstance().ocurreEvento("El jugador se ha movido de la casilla " 
+        Diario.getInstance().ocurreEvento("El jugador " + this.getNombre() + " se ha movido de la casilla " 
                 + casillaActual + " a la casilla " + numCasilla + ".\n");
         casillaActual = numCasilla;
         return true;

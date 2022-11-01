@@ -76,21 +76,21 @@ public class VistaTextual implements Vista {
     public void actualiza(){
         String propiedades = "";
         
-        ArrayList<Casilla> propiedadesCasilla = new ArrayList<>();
-        propiedadesCasilla = juegoModel.getJugadorActual().getPropiedades();
+        ArrayList<Casilla> propiedadesJugadorActual = new ArrayList<>();
+        propiedadesJugadorActual = juegoModel.getJugadorActual().getPropiedades();
         
-        if(propiedadesCasilla.isEmpty())
+        if(propiedadesJugadorActual.isEmpty())
             propiedades = "No tiene propiedades\n";
         else{
-            int tamanio = propiedadesCasilla.size();
+            int tamanio = propiedadesJugadorActual.size();
             for (int i=0; i<tamanio; i++){
-                propiedades = propiedadesCasilla.get(i).toString();
+                propiedades = propiedadesJugadorActual.get(i).toString();
             }
             
             if (!juegoModel.finalDelJuego()){
                 int indice = juegoModel.getJugadorActual().getCasillaActual();
-                Casilla casillaActual = propiedadesCasilla.get(indice);
-                propiedades += "Casilla actual: " + casillaActual.toString();
+                Casilla casillaActual = juegoModel.getTablero().getCasilla(indice);
+                propiedades += "\nCasilla actual: " + casillaActual.toString();
             }
         }
         
@@ -106,10 +106,10 @@ public class VistaTextual implements Vista {
     @Override
     public Respuesta comprar(){
         int indiceCasillaActual = juegoModel.getJugadorActual().getCasillaActual();
-        String casillaActual = juegoModel.getJugadorActual().getPropiedades().get(indiceCasillaActual).toString();
-      
-        int opcionElegida = menu ("Acabas de llegar a la casilla " + casillaActual + "\n¿Quieres comprarla?",
-                        new ArrayList<> (Arrays.asList("SI","NO")));
+        Casilla casillaActual = juegoModel.getTablero().getCasilla(indiceCasillaActual);
+        
+        int opcionElegida = menu ("Acabas de llegar a la siguiente casilla:\n" + casillaActual + "\n¿Quieres comprarla?",
+                        new ArrayList<> (Arrays.asList("NO","SI")));
     
         return (Respuesta.values()[opcionElegida]);        
     }

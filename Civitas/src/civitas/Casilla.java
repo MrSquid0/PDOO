@@ -173,7 +173,7 @@ public class Casilla {
     }
     
     public String toString(){
-        String cadena = "Nombre de la casilla: " + Nombre + 
+        String cadena = "\nNombre de la casilla: " + Nombre + 
                 "\n---- Precios: ----" +
                 "\n- Compra: " + precioCompra + 
                 "\n- Edificar: " + precioEdificar +

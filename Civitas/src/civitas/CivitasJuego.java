@@ -45,7 +45,7 @@ public class CivitasJuego {
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Sorpresa", mazo));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Valdelatas", 280f, 140f, 93f));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Méndez A.", 300f, 150f, 100f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Sorpresa", mazo));
+        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"O`Donell", 350f, 175f, 117f));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"San Jerónimo", 400f, 200f, 133f));
     }    
@@ -77,7 +77,7 @@ public class CivitasJuego {
     }
     
     public boolean comprar(){
-        boolean res = comprar();
+        boolean res;
         Jugador jugadorActual = getJugadorActual();
         int numCasillaActual = jugadorActual.getCasillaActual();
         Casilla casilla = tablero.getCasilla(numCasillaActual);
