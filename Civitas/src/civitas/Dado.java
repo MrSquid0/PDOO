@@ -31,6 +31,7 @@ public class Dado {
         } else
             numero = 1;
         ultimoResultado = numero;
+        numero = 5;
         return numero;
     }
     

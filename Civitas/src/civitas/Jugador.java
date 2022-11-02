@@ -78,7 +78,7 @@ public class Jugador implements Comparable<Jugador> {
             if(puedoEdificar){
                 result = propiedad.construirCasa(this);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye casa en su propiedad " 
-                        + propiedad.getNombre() + ".\n");                
+                        + propiedad.getNombre() + " y queda así:\n" + propiedad.toString() + "\n");
             }
         }
         return result;
@@ -93,7 +93,7 @@ public class Jugador implements Comparable<Jugador> {
                 result = propiedad.construirHotel(this);
                 propiedad.derruirCasas(CasasPorHotel, this);
                 Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en su propiedad " 
-                        + propiedad.getNombre() + ".\n");
+                        + propiedad.getNombre() + " y queda así:\n" + propiedad.toString() + "\n");
             }
         }
         return true;
@@ -223,13 +223,15 @@ public class Jugador implements Comparable<Jugador> {
                     + "por uno de los siguientes motivos: \n"
                     + "- No tienes dinero suficiente.\n"
                     + "- Has superado el número máximo de hoteles.\n"
-                    + "- No tienes casas suficientes para construir un hotel.\n");   
+                    + "- No tienes casas suficientes para construir un hotel. "
+                    + "Necesitas al menos " + CasasPorHotel + " casas para "
+                            + "construir uno.\n");
         return puedoEdificar;
     }
     
     boolean tieneAlgoQueGestionar(){
         boolean tieneAlgo = true;
-        if (propiedades == null)
+        if (propiedades.isEmpty())
             tieneAlgo = false;
         return tieneAlgo;
     }

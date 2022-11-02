@@ -29,7 +29,7 @@ public class Casilla {
         propietario = null;
     }
     
-        //Constructor para casillas de tipo calle
+    //Constructor para casillas de tipo calle
     Casilla (TipoCasilla tipo, String titulo, float precioCompra, 
             float precioEdificar, float precioBaseAlquiler){
         init();

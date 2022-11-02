@@ -82,18 +82,6 @@ public class VistaTextual implements Vista {
         if(propiedadesJugadorActual.isEmpty())
             propiedades = "El jugador " + juegoModel.getJugadorActual().getNombre() + 
                     " no tiene propiedades.\n";
-        else{
-            int tamanio = propiedadesJugadorActual.size();
-            for (int i=0; i<tamanio; i++){
-                propiedades = propiedadesJugadorActual.get(i).toString();
-            }
-            
-            if (!juegoModel.finalDelJuego()){
-                int indice = juegoModel.getJugadorActual().getCasillaActual();
-                Casilla casillaActual = juegoModel.getTablero().getCasilla(indice);
-                propiedades += "\nCasilla actual: " + casillaActual.toString();
-            }
-        }
         
         if (juegoModel.finalDelJuego()){
             ArrayList<Jugador> top = new ArrayList<>();

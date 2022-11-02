@@ -26,6 +26,7 @@ public class Controlador {
             vista.mostrarSiguienteOperacion(siguientePaso);
             if (siguientePaso != OperacionJuego.PASAR_TURNO)
                 vista.mostrarEventos();
+            juegoModel.finalDelJuego();
             switch(siguientePaso){
                 case COMPRAR:
                     if (vista.comprar() == Respuesta.SI)
@@ -33,8 +34,7 @@ public class Controlador {
                     juegoModel.siguientePasoCompletado(siguientePaso);
                     break;
                 case GESTIONAR:
-                    if (!juegoModel.getJugadorActual().getPropiedades().isEmpty()){
-                       OperacionInmobiliaria oper = vista.elegirOperacion();
+                    OperacionInmobiliaria oper = vista.elegirOperacion();
                     if (oper != OperacionInmobiliaria.TERMINAR){
                         int propiedad = vista.elegirPropiedad();
                         if (oper == OperacionInmobiliaria.CONSTRUIR_CASA)
@@ -42,13 +42,8 @@ public class Controlador {
                         else
                             juegoModel.construirHotel(propiedad);
                     } else
-                        juegoModel.siguientePasoCompletado(siguientePaso);   
-                    } else{
-                        System.out.println("\nEl jugador " + juegoModel.getJugadorActual().getNombre() +
-                                " no tiene ninguna propiedad, por lo que no puede gestionar nada.");
                         juegoModel.siguientePasoCompletado(siguientePaso);  
-                    }
-                    break; 
+                    break;
             }
         }
         juegoModel.ranking();

@@ -15,6 +15,7 @@ public class CivitasJuego {
     private EstadosJuego estado;
     MazoSorpresas mazo;
     Tablero tablero;
+    private final int numMaxJugadores = 4;
     
     private void inicializaMazoSorpresas(){
         mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por evasión de impuestos, paga 1000", 1000));
@@ -51,6 +52,7 @@ public class CivitasJuego {
     }    
     
     public CivitasJuego(ArrayList<String> nombres, boolean debug){
+        if (nombres.size() <= numMaxJugadores){
         jugadores = new ArrayList<>(); 
         for (int i = 0; i<nombres.size(); i++){
           jugadores.add(new Jugador(nombres.get(i)));
@@ -65,6 +67,11 @@ public class CivitasJuego {
         inicializaMazoSorpresas();
         tablero = new Tablero();
         inicializaTablero(mazo);
+        } else{
+            System.err.println("El número máximo de jugadores permitidos es " + 
+                    numMaxJugadores + ".\n");
+            System.exit(1);
+        }
     }
     
     private void avanzaJugador(){
