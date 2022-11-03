@@ -20,6 +20,7 @@ public class Sorpresa {
     
     void informe (int actual, ArrayList<Jugador> todos){
         Diario.getInstance().ocurreEvento("Se está aplicando una sorpresa al jugador " + todos.get(actual).getNombre() + ".\n");
+        Diario.getInstance().ocurreEvento("La sorpresa es: " + texto + "\n");
     }
     
     void aplicarAJugador_pagarCobrar(int actual, ArrayList<Jugador> todos){

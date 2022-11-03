@@ -27,11 +27,10 @@ public class Dado {
     int tirar(){
         int numero;
         if (!debug){
-            numero = random.nextInt(1, 7); //7 no incluido
+            numero = random.nextInt(1, 6); //6 no incluido
         } else
             numero = 1;
         ultimoResultado = numero;
-        numero = 5;
         return numero;
     }
     
