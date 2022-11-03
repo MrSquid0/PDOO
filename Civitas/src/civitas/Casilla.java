@@ -44,7 +44,7 @@ public class Casilla {
     //Constructor para casillas de tipo sorpresa
     Casilla (TipoCasilla tipo, String nombre, MazoSorpresas mazo){
         init();
-        tipo = TipoCasilla.SORPRESA;
+        this.tipo = TipoCasilla.SORPRESA;
         this.Nombre = nombre;
         this.mazo = mazo;
     }    
@@ -52,7 +52,7 @@ public class Casilla {
     //Constructor para casillas de tipo descanso    
     Casilla (TipoCasilla tipo, String nombre){
         init();
-        tipo = TipoCasilla.DESCANSO;
+        this.tipo = TipoCasilla.DESCANSO;
         this.Nombre = nombre;
     }
     

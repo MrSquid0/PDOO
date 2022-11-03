@@ -18,13 +18,13 @@ public class CivitasJuego {
     private final int numMaxJugadores = 4;
     
     private void inicializaMazoSorpresas(){
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por evasión de impuestos, paga 1000", 1000));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por evasión de impuestos, paga 1000", -1000));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Has ganado la lotería, recibes 800", 800));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Debido a la inflación, recibes 550", 550));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por exceso de velocidad, pagas 1200", 1200));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por exceso de velocidad, pagas 1200", -1200));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel", 60));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Una inspección ha detectado fugas de gas en tus construcciones, pagas 45 por cada construcción", 45));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel", 80));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Una inspección ha detectado fugas de gas en tus construcciones, pagas 100 por cada construcción", -100));
+        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel", -80));
         mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada casa u hotel", 20));
     }
     
