@@ -29,7 +29,7 @@ public class CivitasJuego {
     }
     
     private void inicializaTablero(MazoSorpresas mazo){
-        //Casilla de salida ya agregada al estar inicializado el tablero
+        //Casilla de salida ya agregada (se agrega en el constructor de tablero)
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Velázquez", 60f, 30f, 20f));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Salamanca", 80f, 40f, 27f));
         tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Castellana", 100f, 50f, 33f));
