@@ -142,6 +142,7 @@ public class Casilla {
                 informe(iactual,todos);
                 break;
         }
+    }
     
     private void recibeJugador_calle(int iactual, ArrayList<Jugador> todos){
         informe (iactual, todos);
