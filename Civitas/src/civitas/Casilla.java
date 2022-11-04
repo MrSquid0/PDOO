@@ -131,15 +131,17 @@ public class Casilla {
     }
     
     void recibeJugador(int iactual, ArrayList<Jugador> todos){
-        if (tipo == TipoCasilla.CALLE)
-            recibeJugador_calle(iactual, todos);
-        
-        if (tipo == TipoCasilla.SORPRESA)
-            recibeJugador_sorpresa(iactual, todos);
-        
-        if (tipo == TipoCasilla.DESCANSO)
-            informe(iactual,todos);
-    }
+        switch (tipo){
+            case CALLE:
+                recibeJugador_calle(iactual, todos);
+                break;
+            case SORPRESA:
+                recibeJugador_sorpresa(iactual, todos);
+                break;
+            case DESCANSO:
+                informe(iactual,todos);
+                break;
+        }
     
     private void recibeJugador_calle(int iactual, ArrayList<Jugador> todos){
         informe (iactual, todos);
