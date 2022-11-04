@@ -166,21 +166,46 @@ public class Casilla {
     }
     
     public void tramitarAlquiler(Jugador jugador){
-        if (tienePropietario() && esEsteElPropietario(jugador)){
-            jugador.pagaAlquiler(precioBaseAlquiler);
-            jugador.recibe(precioBaseAlquiler);
+        if (tienePropietario() && !esEsteElPropietario(jugador)){
+            float aPagar = precioBaseAlquiler + precioBaseAlquiler * numCasas
+                    + precioBaseAlquiler * numHoteles;
+            Diario.getInstance().ocurreEvento(jugador.getNombre() + " tiene que"
+            + " pagar al propietario "+ propietario.getNombre() + " " + aPagar + ".\n");
+            jugador.pagaAlquiler(aPagar);
+            propietario.recibe(aPagar);
         }
     }
     
     public String toString(){
-        String cadena = "\nNombre de la casilla: " + Nombre + 
-                "\n---- Precios: ----" +
-                "\n- Compra: " + precioCompra + 
-                "\n- Edificar: " + precioEdificar +
-                "\n- Alquiler base: " + precioBaseAlquiler +
-                "\n------------------" +
-                "\nCasas: " + numCasas + 
-                "\nHoteles: " + numHoteles + "\n";
+        String cadena = "";
+        if (this.tienePropietario()){
+            cadena = "\nEl propietario de esta casilla es " + propietario.getNombre()+ "."
+                    + "\nAlquiler base: " + precioBaseAlquiler
+                    + "\nCasas: " + numCasas
+                    + "\nHoteles: " + numHoteles;
+        } else {
+            switch (tipo){
+                case CALLE:
+                    cadena = "Acabas de llegar a la siguiente casilla:" +
+                    "\nNombre de la casilla: " + Nombre + 
+                    "\n---- Precios: ----" +
+                    "\n- Compra: " + precioCompra + 
+                    "\n- Edificar: " + precioEdificar +
+                    "\n- Alquiler base: " + precioBaseAlquiler +
+                    "\n------------------" +
+                    "\nCasas: " + numCasas + 
+                    "\nHoteles: " + numHoteles + "\n";
+                    break;
+                
+                case DESCANSO:
+                    cadena = "Acabas de llegar a una casilla de descanso.";
+                    break;
+                
+                case SORPRESA:
+                    cadena = "Acabas de llegar a una casilla de sorpresa.";
+                    break;
+            }
+        }
         return cadena;
     }
 }

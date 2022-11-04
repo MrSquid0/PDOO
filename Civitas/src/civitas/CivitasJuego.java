@@ -80,9 +80,10 @@ public class CivitasJuego {
         int tirada = Dado.getInstance().tirar();
         int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
         Casilla casilla = tablero.getCasilla(posicionNueva);
-        Diario.getInstance().ocurreEvento("Has sacado un " + tirada + ".");
+        Diario.getInstance().ocurreEvento(jugadorActual.getNombre() + " ha sacado un " + tirada + ".");
         contabilizarPasosPorSalida();
         jugadorActual.moverACasilla(posicionNueva);
+        Diario.getInstance().ocurreEvento("\n" + casilla.toString() + "\n");
         casilla.recibeJugador(indiceJugadorActual, jugadores);
     }
     

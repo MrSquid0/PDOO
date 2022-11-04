@@ -97,7 +97,7 @@ public class VistaTextual implements Vista {
         int indiceCasillaActual = juegoModel.getJugadorActual().getCasillaActual();
         Casilla casillaActual = juegoModel.getTablero().getCasilla(indiceCasillaActual);
         
-        int opcionElegida = menu ("Acabas de llegar a la siguiente casilla:\n" + casillaActual + "\n¿Quieres comprarla?",
+        int opcionElegida = menu ("\n¿Quieres comprarla?",
                         new ArrayList<> (Arrays.asList("NO","SI")));
     
         return (Respuesta.values()[opcionElegida]);        
@@ -106,7 +106,7 @@ public class VistaTextual implements Vista {
     @Override
     public OperacionInmobiliaria elegirOperacion(){
         int opcion = menu ("¿Qué gestión inmobiliaria quieres llevar a cabo?",
-            new ArrayList<> (Arrays.asList("-> CONSTRUIR_CASA","-> CONSTRUIR_HOTEL","-> TERMINAR")));
+            new ArrayList<> (Arrays.asList("-> Construir casa","-> Construir hotel","-> Terminar")));
       return OperacionInmobiliaria.values()[opcion];
     }
 

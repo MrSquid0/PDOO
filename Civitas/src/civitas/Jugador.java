@@ -151,7 +151,8 @@ public class Jugador implements Comparable<Jugador> {
     
     boolean modificarSaldo(float cantidad){
         float saldoModificado = saldo+cantidad;
-        Diario.getInstance().ocurreEvento("El saldo fue modificado de " 
+        Diario.getInstance().ocurreEvento("El saldo de " + nombre +
+                " fue modificado de " 
                 + saldo + " a " + saldoModificado + ".\n");
         saldo += cantidad;
         return true;
