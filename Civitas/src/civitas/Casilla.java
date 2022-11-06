@@ -182,10 +182,13 @@ public class Casilla {
     public String toString(){
         String cadena = "";
         if (this.tienePropietario()){
+            float aPagar = precioBaseAlquiler + precioBaseAlquiler * numCasas
+                + precioBaseAlquiler * numHoteles;
             cadena = "\nEl propietario de esta casilla es " + propietario.getNombre()+ "."
                     + "\nAlquiler base: " + precioBaseAlquiler
                     + "\nCasas: " + numCasas
-                    + "\nHoteles: " + numHoteles;
+                    + "\nHoteles: " + numHoteles
+                    + "\nAlquiler total: " + aPagar;
         } else {
             switch (tipo){
                 case CALLE:
