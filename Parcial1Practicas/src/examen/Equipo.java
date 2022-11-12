@@ -13,8 +13,7 @@ public class Equipo {
     }
     
     public Equipo (){
-        nombre = "Anónimo";
-        goles = new ArrayList<>();
+        this("Anónimo");
     }
     
     public String getNombre(){
