@@ -1,6 +1,6 @@
 package ejerciciosjava;
 
-public class EjerciciosP2 {
+public class EjerciciosJavaP2 {
     public static void main(String[] args) {
         Hotel hotel1 = new Hotel("Hotel Palace", "Granada", 5);
         Hotel hotel2 = new Hotel("Hotel NH Luz", "Huelva", 4);

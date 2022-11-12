@@ -1,6 +1,6 @@
-package ejerciciosjava;
+package ejerciciosjavap1;
 
-public class EjerciciosP1 {
+public class EjerciciosJavaP1 {
     public static void main(String[] args) {
         Parcela parcelaEjercicio = new Parcela("parcelaUno", 5000, 2300, 500, "Gonzalo");
 

@@ -1,4 +1,4 @@
-package ejerciciosjava;
+package ejerciciosjavap1;
 
 public class Parcela {
     private String nombre;
