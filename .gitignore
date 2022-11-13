@@ -1,3 +1,5 @@
+#Ignora archivos generados por Netbeans y RubyMine
+
 **/nbproject
 **/build
 **/build.xml
