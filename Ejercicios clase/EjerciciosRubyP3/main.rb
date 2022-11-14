@@ -1,4 +1,4 @@
-require_relative './modelo_laberinto/laberinto'
+require_relative './modelo_laberinto/berinto'
 require_relative './controlador_laberinto/controlador'
 require_relative './vista_laberinto'
 

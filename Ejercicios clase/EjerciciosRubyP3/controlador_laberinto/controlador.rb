@@ -2,7 +2,7 @@
 
 module Controlador_laberinto
 
-  require_relative './estado_juego'
+  require_relative './tado_juego'
   require_relative '../modelo_laberinto/habitacion'
   require_relative '../modelo_laberinto/elemento_separador'
   require_relative '../modelo_laberinto/laberinto'
