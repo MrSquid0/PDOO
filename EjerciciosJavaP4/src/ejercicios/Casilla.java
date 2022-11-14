@@ -14,9 +14,4 @@ public class Casilla {
         System.out.print("He recibido un jugador ");
         return true;
     }
-    
-    protected void construirCasa(){
-        
-    }    
-
 }

@@ -19,8 +19,6 @@ public class CasillaCalle extends Casilla{
         }
         return false;
     }
-    
-    @Override
     protected void construirCasa(){
         numCasas++;
         System.out.println(numCasas);
