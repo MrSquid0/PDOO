@@ -1,7 +1,8 @@
 module Herencia
   class Persona
-    def initialize (nombre)
+    def initialize (nombre, horas_entrenamiento=0)
       @nombre = nombre
+      @horas_entrenamiento = horas_entrenamiento #Añadido por la sesión de autoevaluación
     end
 
     def andar

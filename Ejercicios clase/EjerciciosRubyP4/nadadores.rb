@@ -1,20 +1,13 @@
 module Herencia
   class Nadadores < Deportista
 
-    def initialize(nombre, atributo_horas_entrenamiento)
-      super
-    end
-
-    def andar
-      tmp = super
-      tmp += " y además soy nadador"
-      puts tmp
+    def nadar
+      result = "Estoy nadando"
     end
 
     def to_s
       tmp = super
-      tmp += " y soy nadador"
-      tmp
+      tmp += " y además soy nadador"
     end
   end
 end
