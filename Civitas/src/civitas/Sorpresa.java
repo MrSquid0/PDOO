@@ -7,13 +7,11 @@ package civitas;
 
 import java.util.ArrayList;
 
-public class Sorpresa {
+public abstract class Sorpresa {
     private String texto;
-    int valor;
-    TipoSorpresa tipo;
+    private int valor;
     
-    Sorpresa(TipoSorpresa tipo, String texto, int valor){
-        this.tipo = tipo;
+    Sorpresa(String texto, int valor){
         this.texto = texto;
         this.valor = valor;
     }
@@ -23,25 +21,14 @@ public class Sorpresa {
         Diario.getInstance().ocurreEvento("La sorpresa es: " + texto + "\n");
     }
     
-    void aplicarAJugador_pagarCobrar(int actual, ArrayList<Jugador> todos){
-        informe(actual, todos);
-        todos.get(actual).modificarSaldo(valor);
-    }
-    
-    void aplicarAJugador_porCasaHotel(int actual, ArrayList<Jugador> todos){
-        informe (actual, todos);
-        todos.get(actual).modificarSaldo(valor * todos.get(actual).cantidadCasasHoteles());        
-    }
-    
-    protected void aplicarAJugador(int actual, ArrayList<Jugador> todos){
-        if (tipo == TipoSorpresa.PAGARCOBRAR)
-            aplicarAJugador_pagarCobrar(actual, todos);
-        else
-            aplicarAJugador_porCasaHotel(actual, todos);
-    }
+    abstract void aplicarAJugador(int actual, ArrayList<Jugador> todos);
     
     public String toString(){
         return texto;
+    }
+    
+    protected int getValor(){
+        return valor;
     }
 
 }

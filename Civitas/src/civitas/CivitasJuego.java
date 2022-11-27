@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 package civitas;
 
@@ -18,37 +14,37 @@ public class CivitasJuego {
     private final int numMaxJugadores = 4;
     
     private void inicializaMazoSorpresas(){
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por evasión de impuestos, paga 1000.", -1000));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Has ganado la lotería, recibes 800.", 800));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Debido a la inflación, recibes 550.", 550));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Se te ha multado por exceso de velocidad, pagas 1200.", -1200));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel.", 60));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Una inspección ha detectado fugas de gas en tus construcciones, pagas 100 por cada construcción.", -100));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel.", -80));
-        mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada casa u hotel.", 20));
+        mazo.alMazo(new SorpresaPagarCobrar("Se te ha multado por evasión de impuestos, paga 1000.", -1000));
+        mazo.alMazo(new SorpresaPagarCobrar("Has ganado la lotería, recibes 800.", 800));
+        mazo.alMazo(new SorpresaPagarCobrar("Debido a la inflación, recibes 550.", 550));
+        mazo.alMazo(new SorpresaPagarCobrar("Se te ha multado por exceso de velocidad, pagas 1200.", -1200));
+        mazo.alMazo(new SorpresaPorCasaHotel("Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel.", 60));
+        mazo.alMazo(new SorpresaPorCasaHotel("Una inspección ha detectado fugas de gas en tus construcciones, pagas 100 por cada construcción.", -100));
+        mazo.alMazo(new SorpresaPorCasaHotel("Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel.", -80));
+        mazo.alMazo(new SorpresaPorCasaHotel("El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada casa u hotel.", 20));
     }
     
     private void inicializaTablero(MazoSorpresas mazo){
         //Casilla de salida ya agregada (se agrega en el constructor de tablero)
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Velázquez", 60f, 30f, 20f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Salamanca", 80f, 40f, 27f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Castellana", 100f, 50f, 33f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Tirso de M.", 120f, 60f, 40f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Lavapiés", 140f, 70f, 47f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Goya", 150f, 75f, 50f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Mataelpino", 200f, 100f, 67f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.DESCANSO,"Puro Relax"));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Leganitos", 220f, 110f, 73f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Serrano", 240f, 120f, 80f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"P. del Prado", 260f, 130f, 87f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Valdelatas", 280f, 140f, 93f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"Méndez A.", 300f, 150f, 100f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.SORPRESA,"Sorpresa", mazo));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"O`Donell", 350f, 175f, 117f));
-        tablero.añadeCasilla(new Casilla(TipoCasilla.CALLE,"San Jerónimo", 400f, 200f, 133f));
+        tablero.añadeCasilla(new CasillaCalle("Velázquez", 60f, 30f, 20f));
+        tablero.añadeCasilla(new CasillaCalle("Salamanca", 80f, 40f, 27f));
+        tablero.añadeCasilla(new CasillaCalle("Castellana", 100f, 50f, 33f));
+        tablero.añadeCasilla(new CasillaCalle("Tirso de M.", 120f, 60f, 40f));
+        tablero.añadeCasilla(new CasillaSorpresa("Sorpresa", mazo));
+        tablero.añadeCasilla(new CasillaCalle("Lavapiés", 140f, 70f, 47f));
+        tablero.añadeCasilla(new CasillaCalle("Goya", 150f, 75f, 50f));
+        tablero.añadeCasilla(new CasillaSorpresa("Sorpresa", mazo));
+        tablero.añadeCasilla(new CasillaCalle("Mataelpino", 200f, 100f, 67f));
+        tablero.añadeCasilla(new Casilla("Puro Relax"));
+        tablero.añadeCasilla(new CasillaCalle("Leganitos", 220f, 110f, 73f));
+        tablero.añadeCasilla(new CasillaCalle("Serrano", 240f, 120f, 80f));
+        tablero.añadeCasilla(new CasillaCalle("P. del Prado", 260f, 130f, 87f));
+        tablero.añadeCasilla(new CasillaSorpresa("Sorpresa", mazo));
+        tablero.añadeCasilla(new CasillaCalle("Valdelatas", 280f, 140f, 93f));
+        tablero.añadeCasilla(new CasillaCalle("Méndez A.", 300f, 150f, 100f));
+        tablero.añadeCasilla(new CasillaSorpresa("Sorpresa", mazo));
+        tablero.añadeCasilla(new CasillaCalle("O`Donell", 350f, 175f, 117f));
+        tablero.añadeCasilla(new CasillaCalle("San Jerónimo", 400f, 200f, 133f));
     }    
     
     public CivitasJuego(ArrayList<String> nombres, boolean debug){
@@ -92,7 +88,7 @@ public class CivitasJuego {
         Jugador jugadorActual = getJugadorActual();
         int numCasillaActual = jugadorActual.getCasillaActual();
         Casilla casilla = tablero.getCasilla(numCasillaActual);
-        res = jugadorActual.comprar(casilla);
+        res = jugadorActual.comprar((CasillaCalle)casilla);
         return res;
     }
     

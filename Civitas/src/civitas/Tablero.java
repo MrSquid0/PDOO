@@ -10,7 +10,7 @@ public class Tablero {
     
     public Tablero (){
         casillas = new ArrayList<>();
-        Casilla casilla = new Casilla(TipoCasilla.DESCANSO,"Salida", 0,0,0);
+        Casilla casilla = new Casilla("Salida");
         casillas.add(casilla);
         porSalida = false;
         numCasillas = 20;
