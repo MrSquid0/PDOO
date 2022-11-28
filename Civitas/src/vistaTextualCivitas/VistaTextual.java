@@ -1,6 +1,7 @@
 package vistaTextualCivitas;
 
 import civitas.Casilla;
+import civitas.CasillaCalle;
 import civitas.CivitasJuego;
 import civitas.Diario;
 import civitas.OperacionJuego;
@@ -76,7 +77,7 @@ public class VistaTextual implements Vista {
     public void actualiza(){
         String propiedades = "";
         
-        ArrayList<Casilla> propiedadesJugadorActual = new ArrayList<>();
+        ArrayList<CasillaCalle> propiedadesJugadorActual = new ArrayList<>();
         propiedadesJugadorActual = juegoModel.getJugadorActual().getPropiedades();
         
         if(propiedadesJugadorActual.isEmpty())
