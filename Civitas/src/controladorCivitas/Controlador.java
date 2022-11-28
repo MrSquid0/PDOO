@@ -3,11 +3,9 @@
 package controladorCivitas;
 
 import civitas.CivitasJuego;
-import civitas.Diario;
 import civitas.OperacionJuego;
 import vistaTextualCivitas.VistaTextual;
 import civitas.OperacionInmobiliaria;
-import civitas.GestionInmobiliaria;
 
 public class Controlador {
     CivitasJuego juegoModel;

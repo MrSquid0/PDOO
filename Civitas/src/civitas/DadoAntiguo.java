@@ -3,24 +3,25 @@ package civitas;
 
 import java.util.Random;
 
-public class Dado {
+//Antigua clase de Dado que deja de estar en uso al usar la interfaz gráfica
+public class DadoAntiguo {
     private final Random random;
     
     private int ultimoResultado;
     private boolean debug;
     
-    static final private Dado instance = new Dado();
+    static final private DadoAntiguo instance = new DadoAntiguo();
     
     private final static int VALORDEBUG = 1;
     private final static int VALORESDADO = 6;
     
-    private Dado(){
+    private DadoAntiguo(){
         random = new Random();
         ultimoResultado = 0;
         debug = false;
     }
     
-    public static Dado getInstance(){
+    public static DadoAntiguo getInstance(){
         return instance;
     }
     
