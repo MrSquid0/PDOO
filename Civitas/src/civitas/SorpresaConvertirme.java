@@ -5,12 +5,16 @@ import java.util.ArrayList;
 
 
 public class SorpresaConvertirme extends Sorpresa{
-    SorpresaConvertirme(String texto, int valor){
-        super(texto, valor);
+    SorpresaConvertirme(){
+        super("¡Ahora eres un jugador especulador!", 0);
     }
     
     void aplicarAJugador(int actual, ArrayList<Jugador> todos){
         informe (actual, todos);
-        todos.get(actual).convertir();
+        
+        Jugador jugador = todos.get(actual).convertir();
+        JugadorEspeculador especulador = new JugadorEspeculador(jugador);
+        
+        todos.set(actual, especulador);
     }
 }

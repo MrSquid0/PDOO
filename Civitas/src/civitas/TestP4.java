@@ -1,6 +1,7 @@
 
 package civitas;
 
+//Clase para probar el funcionamiento correcto de JugadorEspeculador
 public class TestP4 {
     public static void main (String[] args){
         Jugador jugador = new Jugador("Gonzalo");
@@ -9,7 +10,7 @@ public class TestP4 {
         
         jugador.comprar(casilla);
         
-        jugador.convertir();
+        jugador = jugador.convertir();
         
         System.out.println(jugador.toString());
     }

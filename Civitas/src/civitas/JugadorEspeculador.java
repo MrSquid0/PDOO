@@ -12,7 +12,7 @@ public class JugadorEspeculador extends Jugador{
     }
     
     public String toString(){
-        String cadenaEspeculador = "Este jugador es especulador\n";
+        String cadenaEspeculador = "Este jugador es especulador.\n";
         cadenaEspeculador += super.toString();
         return cadenaEspeculador;
     }
@@ -23,5 +23,10 @@ public class JugadorEspeculador extends Jugador{
     
     protected int getHotelesMax(){
         return super.getHotelesMax() * FactorEspeculador;
-    }    
+    }
+    
+    boolean paga (float cantidad){
+        return modificarSaldo((cantidad * -1)/2);
+    }
+        
 }
