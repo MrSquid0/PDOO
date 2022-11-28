@@ -21,6 +21,11 @@ public class Controlador {
         vista.recibeModelo(modelo);
     }
     
+    public void añadeVariosElementos(Integer i, int veces) {
+        modelo.añadeVariosElementos(i, veces);
+        vista.recibeModelo(modelo);
+    }    
+    
     public void quitaUno() {
         modelo.quitaUno();
         vista.recibeModelo(modelo);

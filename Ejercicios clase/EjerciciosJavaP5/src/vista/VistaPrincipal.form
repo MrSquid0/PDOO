@@ -32,7 +32,13 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="botonQuita" min="-2" max="-2" attributes="0"/>
-                          <Component id="botonAñade" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="botonAñade" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="añadeVarios" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="cantidadVeces" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -49,6 +55,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="numero" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonAñade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="añadeVarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cantidadVeces" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="botonQuita" min="-2" max="-2" attributes="0"/>
@@ -88,6 +96,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonQuitaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="a&#xf1;adeVarios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;ade:"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a&#xf1;adeVariosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cantidadVeces">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cantidadVecesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

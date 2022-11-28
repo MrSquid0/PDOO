@@ -25,6 +25,12 @@ public class Modelo {
         coleccion1.add(i);
     }
     
+    public void añadeVariosElementos(Integer i, int veces) {
+        for (int u=0; u<veces; u++){
+            añadeElemento(i);
+        }
+    }    
+    
     public void quitaUno() {
         if (coleccion1.size()>0) {
             int pos=generador.nextInt(coleccion1.size());
