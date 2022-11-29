@@ -54,9 +54,7 @@ public class CasillaCalle extends Casilla{
                 "\n- Compra: " + precioCompra + 
                 "\n- Edificar: " + precioEdificar +
                 "\n- Alquiler: " + getPrecioAlquilerCompleto() +
-                "\n------------------" +
-                "\nCasas: " + numCasas + 
-                "\nHoteles: " + numHoteles + "\n";
+                "\n------------------";
         }
         return cadena;
     }
@@ -103,19 +101,19 @@ public class CasillaCalle extends Casilla{
         return precioBaseAlquiler * (FACTORALQUILERCASA * numCasas + numHoteles * FACTORALQUILERHOTEL);
     }
     
-    float getPrecioCompra(){
+    public float getPrecioCompra(){
         return precioCompra;
     }
     
-    float getPrecioEdificar(){
+    public float getPrecioEdificar(){
         return precioEdificar;
     }
     
-    int getNumCasas(){
+    public int getNumCasas(){
         return numCasas;
     }
     
-    int getNumHoteles(){
+    public int getNumHoteles(){
         return numHoteles;
     }
     

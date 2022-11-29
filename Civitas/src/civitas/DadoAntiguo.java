@@ -3,7 +3,8 @@ package civitas;
 
 import java.util.Random;
 
-//Antigua clase de Dado que deja de estar en uso al usar la interfaz gráfica
+//Antigua clase de Dado que deja de estar en uso 
+//al usar la interfaz gráfica
 public class DadoAntiguo {
     private final Random random;
     

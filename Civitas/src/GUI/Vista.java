@@ -6,7 +6,6 @@
 package GUI;
 
 
-import vistaTextualCivitas.*;
 import civitas.OperacionInmobiliaria;
 import civitas.OperacionJuego;
 import controladorCivitas.Respuesta;
@@ -23,7 +22,7 @@ public interface Vista {
 
     public int elegirPropiedad();
 
-    public void mostrarSiguienteOperacion(OperacionJuego operación);
+    public void mostrarSiguienteOperacion(OperacionJuego operacion);
 
     public void mostrarEventos();
 

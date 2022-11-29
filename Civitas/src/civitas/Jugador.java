@@ -145,7 +145,7 @@ public class Jugador implements Comparable<Jugador> {
         return puedeComprar;
     }
     
-    protected float getSaldo(){
+    public float getSaldo(){
         return saldo;
     }
     
@@ -240,6 +240,10 @@ public class Jugador implements Comparable<Jugador> {
     protected JugadorEspeculador convertir(){
         JugadorEspeculador especulador = new JugadorEspeculador(this);
         return especulador;
+    }
+    
+    public boolean esEspeculador(){
+        return false;
     }
     
     public String toString(){

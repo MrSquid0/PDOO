@@ -2,16 +2,18 @@
  */
 package controladorCivitas;
 
+import GUI.CivitasView;
+import vistaTextualCivitas.VistaTextualAntiguo;
+import GUI.Vista;
 import civitas.CivitasJuego;
 import civitas.OperacionJuego;
-import vistaTextualCivitas.VistaTextual;
 import civitas.OperacionInmobiliaria;
 
 public class Controlador {
     CivitasJuego juegoModel;
-    VistaTextual vista;
+    CivitasView vista;
     
-    public Controlador(CivitasJuego juegoModel, VistaTextual vista){
+    public Controlador(CivitasJuego juegoModel, CivitasView vista){
         this.juegoModel = juegoModel;
         this.vista = vista;
     }

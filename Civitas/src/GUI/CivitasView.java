@@ -3,25 +3,26 @@
 package GUI;
 
 import civitas.CivitasJuego;
+import civitas.Diario;
+import civitas.OperacionInmobiliaria;
+import civitas.OperacionJuego;
+import controladorCivitas.Respuesta;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author gonzalo
- */
-public class CivitasView extends javax.swing.JFrame {
-    
-    CivitasJuego juego;
-    
-    void setCivitasJuego(CivitasJuego juego){
-        this.juego = juego;
-        setVisible(true);
-    }
+public class CivitasView extends javax.swing.JFrame implements Vista {
 
     /**
      * Creates new form CivitasView
      */
     public CivitasView() {
         initComponents();
+    }
+    
+    CivitasJuego juego;
+    
+    void setCivitasJuego(CivitasJuego juego){
+        this.juego = juego;
+        setVisible(true);
     }
 
     /**
@@ -34,26 +35,84 @@ public class CivitasView extends javax.swing.JFrame {
     private void initComponents() {
 
         tituloJuego = new javax.swing.JLabel();
+        casilla1 = new GUI.CasillaPanel();
+        operacionEtiq = new javax.swing.JLabel();
+        operacionTex = new javax.swing.JTextField();
+        rankingEtiq = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rankingTex = new javax.swing.JTextField();
+        jugadorPanel2 = new GUI.JugadorPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tituloJuego.setText("Civitas Juego");
+        tituloJuego.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        tituloJuego.setText("Civitas, El Juego");
+
+        operacionEtiq.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        operacionEtiq.setText("Siguiente operación");
+
+        operacionTex.setEditable(false);
+        operacionTex.setText("jTextField1");
+
+        rankingEtiq.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
+        rankingEtiq.setText("Ranking");
+
+        rankingTex.setEditable(false);
+        rankingTex.setText("jTextField1");
+        rankingTex.setBorder(null);
+        jScrollPane1.setViewportView(rankingTex);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tituloJuego)
+                        .addGap(115, 115, 115))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jugadorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(tituloJuego)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(casilla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(rankingEtiq)))
+                                .addGap(77, 77, 77))
+                            .addComponent(operacionTex, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(operacionEtiq)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(tituloJuego)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jugadorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(casilla1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(operacionEtiq)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(operacionTex, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rankingEtiq)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
@@ -61,6 +120,102 @@ public class CivitasView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.CasillaPanel casilla1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private GUI.JugadorPanel jugadorPanel2;
+    private javax.swing.JLabel operacionEtiq;
+    private javax.swing.JTextField operacionTex;
+    private javax.swing.JLabel rankingEtiq;
+    private javax.swing.JTextField rankingTex;
     private javax.swing.JLabel tituloJuego;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualiza() {
+        rankingTex.setVisible(false);
+        rankingEtiq.setVisible(false);
+        jugadorPanel2.setJugador(juego.getJugadorActual());
+        int casillaActual = juego.getJugadorActual().getCasillaActual();
+        casilla1.setCasilla(juego.getTablero().getCasilla(casillaActual));
+        
+        if (juego.finalDelJuego()){
+            rankingTex.setText(juego.mostrarRanking());
+            rankingTex.setVisible(true);
+            rankingEtiq.setVisible(true);
+        }
+        
+        repaint();
+        revalidate();
+    }
+
+    @Override
+    public void pausa() {
+        int val= JOptionPane.showConfirmDialog(null, "¿Continuar?",
+            "Siguiente paso", JOptionPane.YES_NO_OPTION);
+        
+        if (val==1) System.exit(0);
+    }
+
+    @Override
+    public Respuesta comprar() {
+        Respuesta res;
+        int opcion= 1-JOptionPane.showConfirmDialog(null, ""
+                + "¿Quieres comprar lacalle actual?", "Compra", 
+                JOptionPane.YES_NO_OPTION);
+        
+        if (opcion == 0)
+            res = Respuesta.NO;
+        else
+            res = Respuesta.SI;
+        
+        return res;
+    }
+
+    @Override
+    public OperacionInmobiliaria elegirOperacion() {
+        OperacionInmobiliaria op = null;
+        GestionarDialog gestionarD = new GestionarDialog(this);
+        int opt = gestionarD.getGestion();
+        
+        switch (opt){
+            case 0:
+                op = OperacionInmobiliaria.CONSTRUIR_CASA;
+                break;
+            case 1:
+                op = OperacionInmobiliaria.CONSTRUIR_HOTEL;
+                break;
+            case 2:
+                op = OperacionInmobiliaria.TERMINAR;
+                break;
+        }
+        return op;
+    }
+
+    @Override
+    public int elegirPropiedad() {
+        PropiedadDialog propiedadD = new PropiedadDialog(this, 
+                juego.getJugadorActual());
+        int id = propiedadD.getPropiedad();
+        
+        return id;
+    }
+
+    @Override
+    public void mostrarSiguienteOperacion(OperacionJuego operacion) {
+        operacionTex.setText(juego.siguientePaso().toString());
+        
+        if (operacion == OperacionJuego.AVANZAR)
+            Dado.createInstance(this);
+        
+        repaint();
+        revalidate();
+    }
+
+    @Override
+    public void mostrarEventos() {
+        if (!Diario.getInstance().getEventos().isEmpty()){
+            //crea la ventana del diario
+            DiarioDialog diarioD= new DiarioDialog(this);
+        }
+    }
 }

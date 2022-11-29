@@ -4,8 +4,12 @@ package civitas;
 
 import java.util.ArrayList;
 import controladorCivitas.Controlador;
-import vistaTextualCivitas.VistaTextual;
+import vistaTextualCivitas.VistaTextualAntiguo;
 
+//Antigua clase para jugar que deja de estar en uso al 
+//usar la interfaz gráfica
+
+/*
 public class JuegoTexto {
     public static void main (String[] args){
         ArrayList<String> jugadores = new ArrayList<>();
@@ -21,4 +25,4 @@ public class JuegoTexto {
         
         controlador.juega();
     }
-}
+}*/

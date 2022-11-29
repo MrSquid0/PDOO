@@ -22,7 +22,7 @@ public interface Vista {
 
     public int elegirPropiedad();
 
-    public void mostrarSiguienteOperacion(OperacionJuego operación);
+    public void mostrarSiguienteOperacion(OperacionJuego operacion);
 
     public void mostrarEventos();
 

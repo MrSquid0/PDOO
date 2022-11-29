@@ -28,5 +28,9 @@ public class JugadorEspeculador extends Jugador{
     boolean paga (float cantidad){
         return modificarSaldo((cantidad * -1)/2);
     }
+    
+    public boolean esEspeculador(){
+        return true;
+    }    
         
 }

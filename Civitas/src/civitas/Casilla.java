@@ -42,4 +42,24 @@ public class Casilla {
         cadena = "Acabas de llegar a una casilla de tipo descanso.";
         return cadena;
     }
+    
+    public float getPrecioAlquilerCompleto(){
+        return 0;
+    }
+    
+    public float getPrecioCompra(){
+        return 0;
+    }
+    
+    public float getPrecioEdificar(){
+        return 0;
+    }
+    
+    public int getNumCasas(){
+        return 0;
+    }
+    
+    public int getNumHoteles(){
+        return 0;
+    }    
 }

@@ -148,6 +148,16 @@ public class CivitasJuego {
         return ranking;
     }
     
+    public String mostrarRanking(){
+        ArrayList<Jugador> rank = ranking();
+        String ranking = null;
+        
+        for (int i = 1; i < 5; i++)
+            ranking += "\n" + i + "º) " + rank.get(i);
+        
+        return ranking;
+    }    
+    
 
     public OperacionJuego siguientePaso(){
         Jugador jugadorActual = getJugadorActual();

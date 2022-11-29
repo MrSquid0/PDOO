@@ -1,5 +1,6 @@
 package vistaTextualCivitas;
 
+import GUI.Vista;
 import civitas.Casilla;
 import civitas.CasillaCalle;
 import civitas.CivitasJuego;
@@ -7,14 +8,14 @@ import civitas.Diario;
 import civitas.OperacionJuego;
 import controladorCivitas.Respuesta;
 import civitas.OperacionInmobiliaria;
-import civitas.Jugador;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
-
-public class VistaTextual implements Vista {
+//Antigua clase de VistaTextual que deja de estar en uso al 
+//usar la interfaz gráfica
+public class VistaTextualAntiguo implements Vista {
   
     
     private static String separador = "=====================";
@@ -23,13 +24,13 @@ public class VistaTextual implements Vista {
   
     CivitasJuego juegoModel;
   
-    public VistaTextual (CivitasJuego juegoModel) {
+    public VistaTextualAntiguo (CivitasJuego juegoModel) {
         in = new Scanner (System.in);
         this.juegoModel=juegoModel;
     }
   
   
-    @Override         
+            
     public  void pausa() {
         System.out.println("Pulsa una tecla\n");
         in.nextLine();
@@ -73,7 +74,7 @@ public class VistaTextual implements Vista {
     }
   
   
-  @Override
+  
     public void actualiza(){
         String propiedades = "";
         
@@ -84,16 +85,12 @@ public class VistaTextual implements Vista {
             propiedades = "El jugador " + juegoModel.getJugadorActual().getNombre() + 
                     " no tiene propiedades.\n";
         
-        if (juegoModel.finalDelJuego()){
-            ArrayList<Jugador> top = new ArrayList<>();
-            top = juegoModel.ranking();
-            for (int i=0; i<juegoModel.getJugadores().size(); i++)
-                propiedades += "Posición " + i + ": " + top.get(i).getNombre() + "\n";
-        }
+        if (juegoModel.finalDelJuego())
+            juegoModel.mostrarRanking();
         System.out.println(propiedades);
     }
 
-    @Override
+    
     public Respuesta comprar(){
         int indiceCasillaActual = juegoModel.getJugadorActual().getCasillaActual();
         Casilla casillaActual = juegoModel.getTablero().getCasilla(indiceCasillaActual);
@@ -104,14 +101,14 @@ public class VistaTextual implements Vista {
         return (Respuesta.values()[opcionElegida]);        
     }
 
-    @Override
+    
     public OperacionInmobiliaria elegirOperacion(){
         int opcion = menu ("¿Qué gestión inmobiliaria quieres llevar a cabo?",
             new ArrayList<> (Arrays.asList("-> Construir casa","-> Construir hotel","-> Terminar")));
       return OperacionInmobiliaria.values()[opcion];
     }
 
-    @Override
+    
     public int elegirPropiedad(){
         int numMaxPropiedades = juegoModel.getJugadorActual().getPropiedades().size();
         String propiedades = "\n" + separador + "Propiedades de " +
@@ -128,13 +125,13 @@ public class VistaTextual implements Vista {
         return propiedadElegida;
     }
 
-    @Override
+    
     public void mostrarSiguienteOperacion(OperacionJuego operación){
         String operacion = operación.toString();
         System.out.println(operacion);
     }
 
-    @Override
+    
     public void mostrarEventos(){
         while(Diario.getInstance().eventosPendientes())
             System.out.println(Diario.getInstance().leerEvento());
