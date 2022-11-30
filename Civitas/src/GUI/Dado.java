@@ -101,7 +101,7 @@ public class Dado extends JDialog {
     pack();
     timerDado.start();
     this.setVisible(true);
-    return ultimoResultado=5;
+    return ultimoResultado;
     
   }
 
