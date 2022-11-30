@@ -21,7 +21,7 @@ public class Jugador implements Comparable<Jugador> {
     
     private boolean puedeComprar;
     private float saldo;
-    private static float SaldoInicial = 100;
+    private static float SaldoInicial = 7500;
     
     Jugador(String nombre){
         this.nombre = nombre;
