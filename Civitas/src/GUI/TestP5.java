@@ -15,6 +15,7 @@ public class TestP5 {
         
         nombres = captura.getNombres();
         
+        
         Dado.createInstance(vista);
         
         CivitasJuego juego = new CivitasJuego(nombres, false);
@@ -23,7 +24,7 @@ public class TestP5 {
         
         vista.setCivitasJuego(juego);
         
-        vista.actualiza();
         controlador.juega();
+        
     }
 }

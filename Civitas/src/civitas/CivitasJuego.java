@@ -1,6 +1,7 @@
 
 package civitas;
 
+import GUI.Dado;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,15 +16,15 @@ public class CivitasJuego {
     
     private void inicializaMazoSorpresas(){
         mazo.alMazo(new SorpresaPagarCobrar("Se te ha multado por evasión de impuestos, paga 1000.", -1000));
-        mazo.alMazo(new SorpresaPagarCobrar("Has ganado la lotería, recibes 800.", 800));
-        mazo.alMazo(new SorpresaPagarCobrar("Debido a la inflación, recibes 550.", 550));
+        //mazo.alMazo(new SorpresaPagarCobrar("Has ganado la lotería, recibes 800.", 800));
+        //mazo.alMazo(new SorpresaPagarCobrar("Debido a la inflación, recibes 550.", 550));
         mazo.alMazo(new SorpresaPagarCobrar("Se te ha multado por exceso de velocidad, pagas 1200.", -1200));
         mazo.alMazo(new SorpresaConvertirme());
-        mazo.alMazo(new SorpresaPorCasaHotel("Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel.", 60));
-        mazo.alMazo(new SorpresaPorCasaHotel("Una inspección ha detectado fugas de gas en tus construcciones, pagas 100 por cada construcción.", -100));
+        //mazo.alMazo(new SorpresaPorCasaHotel("Tus bienes han sido revalorizados, recibes 60 por cada casa u hotel.", 60));
+        //mazo.alMazo(new SorpresaPorCasaHotel("Una inspección ha detectado fugas de gas en tus construcciones, pagas 100 por cada construcción.", -100));
         mazo.alMazo(new SorpresaPorCasaHotel("Te ha llegado el recibo del IBI, paga 80 por cada casa u hotel.", -80));
-        mazo.alMazo(new SorpresaPorCasaHotel("El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada casa u hotel.", 20));
-        mazo.alMazo(new SorpresaConvertirme());
+        //mazo.alMazo(new SorpresaPorCasaHotel("El Colegio de Arquitectos te ha premiado por tener las mejores construcciones, recibes 20 por cada casa u hotel.", 20));
+        //mazo.alMazo(new SorpresaConvertirme());
     }
     
     private void inicializaTablero(MazoSorpresas mazo){
@@ -57,8 +58,8 @@ public class CivitasJuego {
         }
         gestorEstados = new GestorEstados();
         estado = gestorEstados.estadoInicial();
-        DadoAntiguo.getInstance().setDebug(debug);
-        indiceJugadorActual = DadoAntiguo.getInstance().quienEmpieza(jugadores.size());
+        Dado.getInstance().setDebug(debug);
+        indiceJugadorActual = Dado.getInstance().quienEmpieza(jugadores.size());
         System.out.println("Comienza el juego Civitas. El primer turno es para el jugador " + 
                 jugadores.get(indiceJugadorActual).getNombre() + ".\n");
         mazo = new MazoSorpresas(debug);
@@ -75,7 +76,7 @@ public class CivitasJuego {
     private void avanzaJugador(){
         Jugador jugadorActual = getJugadorActual();
         int posicionActual = jugadorActual.getCasillaActual();
-        int tirada = DadoAntiguo.getInstance().tirar();
+        int tirada = Dado.getInstance().tirar();
         int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
         Casilla casilla = tablero.getCasilla(posicionNueva);
         Diario.getInstance().ocurreEvento(jugadorActual.getNombre() + " ha sacado un " + tirada + ".");
@@ -140,20 +141,27 @@ public class CivitasJuego {
     }
     
     public ArrayList<Jugador> ranking(){
-        ArrayList <Jugador> ranking = new ArrayList<>();
-        for(int i = 0; i < jugadores.size(); i++)
-            ranking.add(jugadores.get(i));
-        
+        ArrayList <Jugador> ranking = new ArrayList<>(jugadores);
         Collections.sort(ranking);
+        //Este sort ordena de menos a más (contando quien entra en
+        //en bancarrota), por lo cual, quien tenga saldo negativo,
+        //sería el primero según esta lista ordenada. Por tanto,
+        //eliminamos el jugador en bancarrota (primera posición) y
+        //lo añadimos al final de la lista para que conste como el
+        //último (pues claramente debe ser así, ya que ha perdido)
+        Jugador ultimo = ranking.get(0);
+        ranking.remove(0);
+        ranking.add(ultimo);
         return ranking;
     }
     
     public String mostrarRanking(){
         ArrayList<Jugador> rank = ranking();
-        String ranking = null;
+        String ranking = "";
         
         for (int i = 1; i < 5; i++)
-            ranking += "\n" + i + "º) " + rank.get(i);
+            ranking += "\n" + i + "º) " + rank.get(i-1).getNombre() 
+                    + " (Saldo: " + rank.get(i-1).getSaldo() + ")" + "\n";
         
         return ranking;
     }    

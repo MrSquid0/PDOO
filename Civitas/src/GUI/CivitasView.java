@@ -16,6 +16,8 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
      */
     public CivitasView() {
         initComponents();
+        rankingTex.setVisible(false);
+        rankingEtiq.setVisible(false);        
     }
     
     CivitasJuego juego;
@@ -40,8 +42,8 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
         operacionTex = new javax.swing.JTextField();
         rankingEtiq = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rankingTex = new javax.swing.JTextField();
         jugadorPanel2 = new GUI.JugadorPanel();
+        rankingTex = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,49 +54,43 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
         operacionEtiq.setText("Siguiente operación");
 
         operacionTex.setEditable(false);
-        operacionTex.setText("jTextField1");
+        operacionTex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionTexActionPerformed(evt);
+            }
+        });
 
         rankingEtiq.setFont(new java.awt.Font("Liberation Sans", 0, 20)); // NOI18N
         rankingEtiq.setText("Ranking");
 
         rankingTex.setEditable(false);
-        rankingTex.setText("jTextField1");
+        rankingTex.setColumns(20);
+        rankingTex.setRows(5);
+        rankingTex.setAutoscrolls(false);
         rankingTex.setBorder(null);
-        jScrollPane1.setViewportView(rankingTex);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(tituloJuego)
-                        .addGap(115, 115, 115))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jugadorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jugadorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloJuego)
+                    .addComponent(casilla1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(casilla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(rankingEtiq)))
-                                .addGap(77, 77, 77))
-                            .addComponent(operacionTex, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(operacionEtiq)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(2, 2, 2)
+                                .addComponent(rankingTex, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rankingEtiq)
+                            .addComponent(operacionTex, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(operacionEtiq))))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,15 +104,21 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
                 .addComponent(operacionEtiq)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(operacionTex, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(rankingEtiq)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rankingTex, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 122, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void operacionTexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionTexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_operacionTexActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -126,14 +128,12 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
     private javax.swing.JLabel operacionEtiq;
     private javax.swing.JTextField operacionTex;
     private javax.swing.JLabel rankingEtiq;
-    private javax.swing.JTextField rankingTex;
+    private javax.swing.JTextArea rankingTex;
     private javax.swing.JLabel tituloJuego;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actualiza() {
-        rankingTex.setVisible(false);
-        rankingEtiq.setVisible(false);
         jugadorPanel2.setJugador(juego.getJugadorActual());
         int casillaActual = juego.getJugadorActual().getCasillaActual();
         casilla1.setCasilla(juego.getTablero().getCasilla(casillaActual));
@@ -160,7 +160,7 @@ public class CivitasView extends javax.swing.JFrame implements Vista {
     public Respuesta comprar() {
         Respuesta res;
         int opcion= 1-JOptionPane.showConfirmDialog(null, ""
-                + "¿Quieres comprar lacalle actual?", "Compra", 
+                + "¿Quieres comprar la calle actual?", "Compra", 
                 JOptionPane.YES_NO_OPTION);
         
         if (opcion == 0)

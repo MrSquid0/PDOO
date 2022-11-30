@@ -23,12 +23,14 @@ public class PropiedadDialog extends javax.swing.JDialog {
         propiedadElegida = -1;
         rellenaPropiedades(jugador);
         listaPropiedades.setVisible(true);
+        setVisible(true);
         
         repaint();
         revalidate();
     }
     
     int getPropiedad(){
+
         return propiedadElegida;
     }
     
@@ -38,7 +40,7 @@ public class PropiedadDialog extends javax.swing.JDialog {
         
         //se completan los datos
         for (CasillaCalle propiedad: jugador.getPropiedades()){
-            propiedades.addElement(propiedad);
+            propiedades.addElement(propiedad.getNombre());
         }
         //se le dice a la lista cuáles son esos datos
         listaPropiedades.setModel(propiedades);
@@ -79,14 +81,13 @@ public class PropiedadDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(tituloPropiedades))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tituloPropiedades))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

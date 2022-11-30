@@ -10,22 +10,34 @@ import civitas.Diario;
  */
 public class DiarioDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form DiarioDialog
-     */
+    Diario diario;
+
     public DiarioDialog(java.awt.Frame parent) {
         super(parent, true);
         initComponents();
         setLocationRelativeTo(null);
-        panelEventos.setText(diario.getEventos().toString());
-        panelEventos.setVisible(true);
+        mostrarEventos();
+        setVisible(true);
         
         repaint();
         revalidate();
     }
     
-    Diario diario;
+    private void mostrarEventos(){
+        String mostrarEvento = null;
+        boolean hayEvento = Diario.getInstance().eventosPendientes();
+        
+        if (hayEvento){
+            while (Diario.getInstance().eventosPendientes())
+                mostrarEvento += "\n" + Diario.getInstance().leerEvento();
 
+            panelEventos.setText(mostrarEvento);
+            panelEventos.setVisible(true);
+        }else
+            this.setVisible(false);
+    }
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,29 +73,26 @@ public class DiarioDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(tituloEventos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(botonOK)
-                .addGap(159, 159, 159))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloEventos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonOK, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(231, 231, 231))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(tituloEventos)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(botonOK)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();

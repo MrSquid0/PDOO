@@ -19,7 +19,7 @@ public class JuegoTexto {
         jugadores.add("Juanma");
         CivitasJuego juego = new CivitasJuego(jugadores, false);
         
-        VistaTextual vista = new VistaTextual(juego);
+        VistaTextualAntiguo vista = new VistaTextualAntiguo(juego);
         
         Controlador controlador = new Controlador (juego, vista);
         

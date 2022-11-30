@@ -17,7 +17,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="tituloEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="numCasasEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -29,14 +28,12 @@
                   <Component id="numCasasTex" min="-2" max="-2" attributes="0"/>
                   <Component id="tituloTex" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tituloEtiq" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tituloTex" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -51,7 +48,6 @@
                   <Component id="numHotelesEtiq" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="numHotelesTex" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

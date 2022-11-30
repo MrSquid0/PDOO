@@ -18,7 +18,7 @@ public class Tablero {
     
     private boolean correcto (int numCasilla){
         boolean esCorrecto = false;
-        if (numCasilla >= 1)
+        if (numCasilla >= 0)
             esCorrecto = true;
         return esCorrecto;
     }

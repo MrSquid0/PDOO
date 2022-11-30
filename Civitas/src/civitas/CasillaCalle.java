@@ -39,22 +39,13 @@ public class CasillaCalle extends Casilla{
     }
     
     public String toString(){
-        String cadena;
+        String cadena = "";
         if (this.tienePropietario()){
             float aPagar = getPrecioAlquilerCompleto();
             cadena = "\nEl propietario de esta casilla es " + propietario.getNombre()+ "."
                     + "\nCasas: " + numCasas
                     + "\nHoteles: " + numHoteles
                     + "\nAlquiler total: " + aPagar;
-        } else {        
-        
-        cadena = "Acabas de llegar a la siguiente casilla:" +
-                "\nNombre de la casilla: " + super.getNombre() + 
-                "\n---- Precios: ----" +
-                "\n- Compra: " + precioCompra + 
-                "\n- Edificar: " + precioEdificar +
-                "\n- Alquiler: " + getPrecioAlquilerCompleto() +
-                "\n------------------";
         }
         return cadena;
     }

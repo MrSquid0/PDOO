@@ -11,7 +11,7 @@ public class GestionInmobiliaria {
         this.indice = indice;
     }
     
-    OperacionInmobiliaria getValor(){
+    public OperacionInmobiliaria getValor(){
         return valor;
     }
     
