@@ -89,7 +89,7 @@ public class CasillaCalle extends Casilla{
     }
     
     public float getPrecioAlquilerCompleto(){
-        return precioBaseAlquiler * (FACTORALQUILERCASA * numCasas + numHoteles * FACTORALQUILERHOTEL);
+        return precioBaseAlquiler + (FACTORALQUILERCASA * numCasas + numHoteles * FACTORALQUILERHOTEL);
     }
     
     public float getPrecioCompra(){

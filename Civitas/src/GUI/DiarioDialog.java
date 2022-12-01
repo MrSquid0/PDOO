@@ -24,7 +24,7 @@ public class DiarioDialog extends javax.swing.JDialog {
     }
     
     private void mostrarEventos(){
-        String mostrarEvento = null;
+        String mostrarEvento = "";
         boolean hayEvento = Diario.getInstance().eventosPendientes();
         
         if (hayEvento){

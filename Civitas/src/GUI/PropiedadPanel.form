@@ -16,18 +16,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="tituloEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="numCasasEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="numHotelesEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="alquilerEtiq" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="alquilerTex" min="-2" max="-2" attributes="0"/>
                   <Component id="numHotelesTex" min="-2" max="-2" attributes="0"/>
                   <Component id="numCasasTex" min="-2" max="-2" attributes="0"/>
                   <Component id="tituloTex" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,6 +51,12 @@
                   <Component id="numHotelesEtiq" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="numHotelesTex" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="alquilerEtiq" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="alquilerTex" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,6 +93,16 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="jTextField3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="alquilerEtiq">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alquiler"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="alquilerTex">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
     </Component>
   </SubComponents>
