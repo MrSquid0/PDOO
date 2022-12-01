@@ -150,7 +150,7 @@ public class CivitasJuego {
         ArrayList<Jugador> rank = ranking();
         String ranking = "";
         
-        //El ranking se ordena al revés (de menos a más), por tanto,
+        //El ranking se ordena de menos a más, por tanto,
         //imprimimos el ArrayList al revés, para que a nivel de usuario,
         //aparezca de más a menos
         int posicion = 1;
