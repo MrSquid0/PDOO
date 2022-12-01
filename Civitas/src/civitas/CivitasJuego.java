@@ -143,15 +143,6 @@ public class CivitasJuego {
     public ArrayList<Jugador> ranking(){
         ArrayList <Jugador> ranking = new ArrayList<>(jugadores);
         Collections.sort(ranking);
-        //Este sort ordena de menos a más (contando quien entra en
-        //en bancarrota), por lo cual, quien tenga saldo negativo,
-        //sería el primero según esta lista ordenada. Por tanto,
-        //eliminamos el jugador en bancarrota (primera posición) y
-        //lo añadimos al final de la lista para que conste como el
-        //último (pues claramente debe ser así, ya que ha perdido)
-        Jugador ultimo = ranking.get(0);
-        ranking.remove(0);
-        ranking.add(ultimo);
         return ranking;
     }
     
@@ -159,9 +150,15 @@ public class CivitasJuego {
         ArrayList<Jugador> rank = ranking();
         String ranking = "";
         
-        for (int i = 1; i < 5; i++)
-            ranking += "\n" + i + "º) " + rank.get(i-1).getNombre() 
-                    + " (Saldo: " + rank.get(i-1).getSaldo() + ")" + "\n";
+        //El ranking se ordena al revés (de menos a más), por tanto,
+        //imprimimos el ArrayList al revés, para que a nivel de usuario,
+        //aparezca de más a menos
+        int posicion = 1;
+        for (int i = 3; i >= 0; i--){
+            ranking += "\n" + posicion + "º) " + rank.get(i).getNombre() 
+                    + " (Saldo: " + rank.get(i).getSaldo() + ")" + "\n";
+            posicion++;
+        }
         
         return ranking;
     }    
