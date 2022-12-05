@@ -21,13 +21,23 @@ public class Controlador {
         vista.recibeModelo(modelo);
     }
     
-    public void añadeVariosElementos(Integer i, int veces) {
-        modelo.añadeVariosElementos(i, veces);
+    public void añadeElemento2(Integer i) {
+        modelo.añadeElemento2(i);
         vista.recibeModelo(modelo);
     }    
     
+    public void añadeVariosElementos(Integer i, int veces) {
+        modelo.añadeVariosElementos(i, veces);
+        vista.recibeModelo(modelo);
+    }
+    
     public void quitaUno() {
         modelo.quitaUno();
+        vista.recibeModelo(modelo);
+    }
+    
+    public void añadeSuma(){
+        modelo.añadeSuma();
         vista.recibeModelo(modelo);
     }
     

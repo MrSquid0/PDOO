@@ -39,12 +39,21 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
         botonQuita = new javax.swing.JButton();
         añadeVarios = new javax.swing.JButton();
         cantidadVeces = new javax.swing.JTextField();
+        vistaColeccion2 = new javax.swing.JPanel();
+        botonAñade2 = new javax.swing.JButton();
+        numero2 = new javax.swing.JTextField();
+        botonAñadeSuma = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         vistaColeccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         numero.setText("0");
+        numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroActionPerformed(evt);
+            }
+        });
 
         botonAñade.setText("Añade");
         botonAñade.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +83,29 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
             }
         });
 
+        vistaColeccion2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        botonAñade2.setText("Añade");
+        botonAñade2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñade2ActionPerformed(evt);
+            }
+        });
+
+        numero2.setText("0");
+        numero2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numero2ActionPerformed(evt);
+            }
+        });
+
+        botonAñadeSuma.setText("Añade Suma");
+        botonAñadeSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñadeSumaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,18 +113,26 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(vistaColeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonQuita)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(botonAñade)
-                                .addGap(36, 36, 36)
-                                .addComponent(añadeVarios)
-                                .addGap(27, 27, 27)
-                                .addComponent(cantidadVeces, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(numero2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(botonAñade2)
+                        .addGap(38, 38, 38)
+                        .addComponent(botonAñadeSuma))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(vistaColeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(botonQuita)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(botonAñade)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(añadeVarios)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(cantidadVeces, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(vistaColeccion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,7 +148,14 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
                     .addComponent(cantidadVeces, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(botonQuita)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
+                .addComponent(vistaColeccion2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonAñade2)
+                    .addComponent(numero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAñadeSuma))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,6 +181,23 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
         // TODO add your handling code here:
     }//GEN-LAST:event_cantidadVecesActionPerformed
 
+    private void botonAñade2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñade2ActionPerformed
+        Integer i=Integer.parseInt(this.numero2.getText());
+        controlador.añadeElemento2(i);
+    }//GEN-LAST:event_botonAñade2ActionPerformed
+
+    private void numero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numero2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numero2ActionPerformed
+
+    private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroActionPerformed
+
+    private void botonAñadeSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadeSumaActionPerformed
+        controlador.añadeSuma();
+    }//GEN-LAST:event_botonAñadeSumaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -141,13 +205,22 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
     public void recibeModelo(Modelo m) {
         
         ArrayList<Integer> coleccion=m.getColeccion1();
+        ArrayList<Integer> coleccion2=m.getColeccion2();
         
         this.vistaColeccion.removeAll();
+        this.vistaColeccion2.removeAll();
         for(Integer i:coleccion) {
             VistaElemento ve=new VistaElemento();
             ve.recibeModelo(i);
             this.vistaColeccion.add(ve);
         }
+        
+        for(Integer i:coleccion2) {
+            VistaElemento ve=new VistaElemento();
+            ve.recibeModelo(i);
+            this.vistaColeccion2.add(ve);
+        }
+
         repaint();
         revalidate();
         
@@ -156,9 +229,13 @@ public class VistaPrincipal extends javax.swing.JFrame implements Vista {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton añadeVarios;
     private javax.swing.JButton botonAñade;
+    private javax.swing.JButton botonAñade2;
+    private javax.swing.JButton botonAñadeSuma;
     private javax.swing.JButton botonQuita;
     private javax.swing.JTextField cantidadVeces;
     private javax.swing.JTextField numero;
+    private javax.swing.JTextField numero2;
     private javax.swing.JPanel vistaColeccion;
+    private javax.swing.JPanel vistaColeccion2;
     // End of variables declaration//GEN-END:variables
 }
