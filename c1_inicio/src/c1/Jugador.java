@@ -39,16 +39,20 @@ public class Jugador {
     public ArrayList<Gol> getGoles() {
         return goles;
     }
-    
+
     public void addGol(Gol gol){
         goles.add(gol);
     } 
     
+    //Copia profunda de Jugador
     public Jugador copia(){
-        Jugador jugador = new Jugador(this.nombre);   
+        Jugador jugador = new Jugador(this.nombre);
+        ArrayList<Gol> golesCopia = new ArrayList<>();
         for (int i=0; i<this.goles.size(); i++){
-            jugador.addGol(this.getGoles().get(i));
+            golesCopia.add(this.getGoles().get(i).copia(this.getGoles().get(i)));
         }
+        
+        jugador.goles = golesCopia;
         return jugador;
     }
 }

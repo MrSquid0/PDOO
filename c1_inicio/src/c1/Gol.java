@@ -1,5 +1,7 @@
 package c1;
 
+import java.util.ArrayList;
+
 public abstract class Gol {
     private static int TOTAL_GOLES = 0;
     private int minuto;
@@ -37,4 +39,6 @@ public abstract class Gol {
     }
     
     public abstract String descripcion();
+    
+    public abstract Gol copia(Gol otro);
 }

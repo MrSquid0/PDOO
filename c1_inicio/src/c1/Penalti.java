@@ -1,6 +1,9 @@
 
 package c1;
 
+import static c1.Gol.numeroGoles;
+import java.util.ArrayList;
+
 public class Penalti extends Gol {
     private String lado;
 
@@ -27,4 +30,13 @@ public class Penalti extends Gol {
         return jugador;
     }
     
+    @Override
+    public Gol copia(Gol otro){
+        
+        Penalti penalti = new Penalti (((Penalti)otro).getLado(), 
+                otro.getMinuto(),otro.getJugador(), 
+                otro.getEquipo());
+
+        return penalti;
+    }
 }
